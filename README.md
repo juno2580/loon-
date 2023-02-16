@@ -1,3 +1,7 @@
+### 访问量
+
+![](http://profile-counter.glitch.me/FoKit_Scripts/count.svg)
+
 ### 引用的项目
 
 感谢下面这些无私奉献的大佬，排名不分先后，在此表示感谢。
