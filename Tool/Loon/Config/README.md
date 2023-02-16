@@ -8,7 +8,7 @@
 
 适用版本：3.0.3及以上
 
-配置地址：[https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Config/Loon_Sample_Configuration_By_iKeLee.conf](https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Config/Loon_Sample_Configuration_By_iKeLee.conf)
+配置地址：[点击导入配置文件](https://api.boxjs.app/loon/import?sub=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Config/Loon_Sample_Configuration_By_iKeLee.conf)
 
 ### 使用说明
 
