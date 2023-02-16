@@ -8,6 +8,10 @@
 [General]
 force-http-engine-hosts = boxjs.com:80, boxjs.net:80
 
+[Rule]
+DOMAIN, cdn.jsdelivr.net, PROXY
+DOMAIN, raw.githubusercontent.com, PROXY
+
 [Script]
 http-request ^https?:\/\/boxjs\.(com|net) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/BoxJS/BoxJS.js, requires-body= true, tag=BoxJS, timeout=120, img-url = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/Other_icon/80px/BoxJS.png
 
