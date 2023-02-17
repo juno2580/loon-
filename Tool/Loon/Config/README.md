@@ -4,11 +4,12 @@
 
 配置作者：[可莉🅥](https://t.me/iKeLee)
 
-更新日期：2023-02-05
+更新日期：2023-02-17
 
 适用版本：3.0.3及以上
 
-配置地址：[点击导入配置文件](https://api.boxjs.app/loon/import?sub=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Config/Loon_Sample_Configuration_By_iKeLee.conf)
+配置地址：[点击导入进阶配置文件](https://api.boxjs.app/loon/import?sub=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Config/Loon_Sample_Configuration_By_iKeLee.conf) [点击导入最小配置文件](https://api.boxjs.app/loon/import?sub=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Config/Loon_Simple_Sample_Configuration_By_iKeLee.conf)
+
 
 ### 使用说明
 
