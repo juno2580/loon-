@@ -10,7 +10,9 @@
 
 ### 导入配置
 
-#### 点击下方链接后会立刻覆盖你正在用的配置文件，所以你在导入前应该备份好你正在用的配置文件：点击[配置]→[导出]→[存储到“文件”]
+#### 点击下方链接后会立刻开始导入配置文件并询问你受否真的要导入，请务必确认后导入。
+
+#### 你应该在导入前备份好你正在用的配置文件：点击[配置]→[导出]→[存储到“文件”]
 
 [点击导入进阶配置文件](https://api.boxjs.app/loon/import?sub=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Config/Loon_Sample_Configuration_By_iKeLee.conf)
 
