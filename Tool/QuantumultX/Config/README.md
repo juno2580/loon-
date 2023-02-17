@@ -8,7 +8,11 @@
 
 适用版本：1.1.0 及以上
 
-配置地址：[https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/QuantumultX/Config/Quantumult_X_Sample_Configuration_By_iKeLee.conf](https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/QuantumultX/Config/Quantumult_X_Sample_Configuration_By_iKeLee.conf)
+### 配置地址
+
+[进阶配置](https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/QuantumultX/Config/Quantumult_X_Sample_Configuration_By_iKeLee.conf)
+
+[最小配置](https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/QuantumultX/Config/Quantumult_X_Simple_Sample_Configuration_By_iKeLee.conf)
 
 ### 使用说明
 
