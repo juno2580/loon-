@@ -6,10 +6,10 @@
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Bing.png
 
 [Rule]
-DOMAIN-SUFFIX, bing.com, PROXY
+DOMAIN-SUFFIX, bing.com
 
 [Rewrite]
-^https?:\/\/(?:.*\.)?bing\.com header-replace User-Agent Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1660.13
+http-request ^http(s)?:\/\/(?:.*\.)?bing\.com script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bing/NewBing.js, requires-body=false, tag=New Bing, img-url=https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Bing.png
 
 [MITM]
 hostname = bing.com, *.bing.com
