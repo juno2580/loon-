@@ -1,0 +1,15 @@
+#!name = New Bing
+#!desc = 访问新版必应
+#!openUrl = 
+#!author = 可莉🅥
+#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
+#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Bing.png
+
+[Rule]
+DOMAIN-SUFFIX, bing.com, PROXY
+
+[Rewrite]
+^https?:\/\/(?:.*\.)?bing\.com header-replace User-Agent Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1660.13
+
+[MITM]
+hostname = bing.com, *.bing.com
