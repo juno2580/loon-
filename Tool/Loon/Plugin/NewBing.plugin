@@ -8,7 +8,7 @@
 [Rule]
 DOMAIN-SUFFIX, bing.com
 
-[Rewrite]
+[Script]
 http-request ^http(s)?:\/\/(?:.*\.)?bing\.com script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bing/NewBing.js, requires-body=false, tag=New Bing, img-url=https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Bing.png
 
 [MITM]
