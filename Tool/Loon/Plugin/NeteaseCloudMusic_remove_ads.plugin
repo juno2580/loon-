@@ -27,7 +27,8 @@
 ^https?:\/\/interface3\.music\.163\.com\/eapi\/v1\/content\/exposure\/comment\/banner\/get\? reject-dict
 
 # 首页、右上角多余图标、会员续费弹窗
-^https:\/\/interface3\.music\.163\.com\/eapi\/(homepage\/banner\/ad\/get|link\/scene\/show\/resource|vipauth\/app\/auth\/recycle)\? reject-dict
+^https:\/\/interface3\.music\.163\.com\/eapi\/(homepage\/banner\/ad\/get|link\/scene\/show\/resource)\? reject-dict
+^https:\/\/interface3\.music\.163\.com\/eapi\/(music-vip-membership\/client\/vip\/info|vipauth\/app\/auth\/recycle)\? reject-dict
 
 # 我的页面、小部件红点
 ^https:\/\/interface3\.music\.163\.com\/eapi\/mine\/applet\/redpoint\? reject-dict
