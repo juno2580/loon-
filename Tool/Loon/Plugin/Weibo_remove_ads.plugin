@@ -43,9 +43,9 @@ http-response ^https:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/sdkad\.php$ sc
 http-response ^https:\/\/wbapp\.uve\.weibo\.com\/wbapplua\/wbpullad\.lua\? script-path = https://gitlab.com/lodepuly/vpn_tool/raw/main/Resource/Script/Weibo/Weibo_remove_ads.js, requires-body = true, tag = 微博·移除开屏广告, img-url = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Weibo.png
 
 # 跳过重定向页面以直接访问 //weibo.cn, shop.sc.weibo.com, t.cn, sinaurl.cn
-# http-response ^https:\/\/weibo\.cn\/sinaurl\?(.*&)?(u|toasturl|goto)= url script-echo-response https://gitlab.com/lodepuly/vpn_toOl/-/rAw/mAin/resOurce/scriPt/weibo/weibo_remove_redirect.js, requires-body = true, tag = 微博·移除详情页广告及各种推广模块, img-url = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Weibo.png
-# http-response ^https:\/\/shop\.sc\.weibo\.com\/h5\/jump\/error\?(.*&)?url= url script-echo-response https://gitlab.com/lodepuly/vpn_toOl/-/rAw/mAin/resOurce/scriPt/weibo/weibo_remove_redirect.js, requires-body = true, tag = 微博·移除详情页广告及各种推广模块, img-url = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Weibo.png
-# http-response ^https:\/\/(sinaurl|t)\.cn\/ url script-response-header https://gitlab.com/lodepuly/vpn_toOl/-/rAw/mAin/resOurce/scriPt/weibo/weibo_remove_redirect.js, requires-body = true, tag = 微博·移除详情页广告及各种推广模块, img-url = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Weibo.png
+# http-response ^https:\/\/weibo\.cn\/sinaurl\?(.*&)?(u|toasturl|goto)= url script-echo-response https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Weibo/Weibo_remove_redirect.js, requires-body = true, tag = 微博·移除详情页广告及各种推广模块, img-url = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Weibo.png
+# http-response ^https:\/\/shop\.sc\.weibo\.com\/h5\/jump\/error\?(.*&)?url= url script-echo-response https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Weibo/Weibo_remove_redirect.js, requires-body = true, tag = 微博·移除详情页广告及各种推广模块, img-url = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Weibo.png
+# http-response ^https:\/\/(sinaurl|t)\.cn\/ url script-response-header https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Weibo/Weibo_remove_redirect.js, requires-body = true, tag = 微博·移除详情页广告及各种推广模块, img-url = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Weibo.png
 
 [MITM]
 hostname = api.weibo.cn, boot.biz.weibo.com, sdkapp.uve.weibo.com, wbapp.uve.weibo.com, card.weibo.com, weibo.com, weibo.cn, shop.sc.weibo.com, t.cn, sinaurl.cn
