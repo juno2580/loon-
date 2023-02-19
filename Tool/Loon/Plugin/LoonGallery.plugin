@@ -1,5 +1,5 @@
 #!name = 插件仓库
-#!desc = 一站式插件仓库任君选择，一键安装，方便快捷。
+#!desc = 一站式插件仓库任君选择，一键安装，方便快捷。使用前请在本插件的详情页面为[PROXY]项分配代理策略，同兜底策略[Final]即可，默认亦可。
 #!openUrl = https://🎈.com
 #!author = Peng-YM
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
