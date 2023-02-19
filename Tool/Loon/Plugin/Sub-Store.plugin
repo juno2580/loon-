@@ -5,6 +5,9 @@
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/Other_icon/80px/Sub-Store.png
 
+[Rule]
+DOMAIN, sub-store.vercel.app, PROXY
+
 [Script]
 http-request ^https?:\/\/sub\.store\/((download)|api\/(preview|sync|(utils\/node-info))) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Sub-Store/sub-store-1.min.js, requires-body = true, timeout=120, tag = Sub-Store Core, img-url = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/Other_icon/80px/Sub-Store.png
 http-request ^https?:\/\/sub\.store script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Sub-Store/sub-store-0.min.js, requires-body = true, timeout=120, tag = Sub-Store Simple, img-url = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/Other_icon/80px/Sub-Store.png
