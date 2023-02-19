@@ -6,7 +6,7 @@
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Bing.png
 
 [Rule]
-DOMAIN-SUFFIX, bing.com
+DOMAIN-SUFFIX, bing.com, PROXY
 
 [Script]
 http-request ^http(s)?:\/\/(?:.*\.)?bing\.com script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bing/BingAI.js, requires-body=false, tag=Bing AI, img-url=https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Bing.png
