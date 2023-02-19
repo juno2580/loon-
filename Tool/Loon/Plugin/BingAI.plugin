@@ -1,4 +1,4 @@
-#!name = New Bing
+#!name = Bing AI
 #!desc = 新版必应需要获得内测资格方可使用，请务为此插件分配代理策略。此插件会模拟桌面版Edge浏览器身份访问新版Bing，在网页布局上将会以桌面版网页呈现，望悉知。
 #!openUrl = 
 #!author = geekdada 可莉🅥
@@ -9,7 +9,7 @@
 DOMAIN-SUFFIX, bing.com
 
 [Script]
-http-request ^http(s)?:\/\/(?:.*\.)?bing\.com script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bing/NewBing.js, requires-body=false, tag=New Bing, img-url=https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Bing.png
+http-request ^http(s)?:\/\/(?:.*\.)?bing\.com script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bing/BingAI.js, requires-body=false, tag=Bing AI, img-url=https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Bing.png
 
 [MITM]
 hostname = bing.com, *.bing.com
