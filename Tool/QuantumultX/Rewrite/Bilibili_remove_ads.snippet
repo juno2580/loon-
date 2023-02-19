@@ -34,8 +34,8 @@
 # 去除皮肤推送 //app.bilibili.com
 ^https:\/\/app\.bilibili\.com\/x\/resource\/show\/skin\? url script-response-body https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js
 
-# 我的页面 解锁1080P高码率、4K画质 //app.bilibili.com
-# ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/(mine|myinfo)\? url script-response-body https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js
+# 我的页面处理 //app.bilibili.com
+^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\? url script-response-body https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js
 
 #[mitm]
 hostname = app.bilibili.com

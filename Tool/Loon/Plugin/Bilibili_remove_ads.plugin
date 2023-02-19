@@ -36,8 +36,8 @@ http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/splash\/(list|show)\? script
 # 去除皮肤推送 //app.bilibili.com
 http-response ^https:\/\/app\.bilibili\.com\/x\/resource\/show\/skin\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 去除皮肤推送, img-url = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Bilibili.png
 
-# 我的页面 解锁1080P高码率、4K画质 //app.bilibili.com
-# http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/(mine|myinfo)\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 画质解锁, img-url = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Bilibili.png
+# 我的页面处理 //app.bilibili.com
+http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 我的页面处理, img-url = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Bilibili.png
 
 [MITM]
 hostname = app.bilibili.com, api.bilibili.com, api.live.bilibili.com, grpc.biliapi.net
