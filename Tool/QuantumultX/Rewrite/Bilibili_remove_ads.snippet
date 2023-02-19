@@ -6,12 +6,12 @@
 
 #[rewrite_local]
 # 屏蔽默认搜索词 //app.bilibili.com
-^https:\/\/app\.bilibili\.com\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$ reject
+^https:\/\/app\.bilibili\.com\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$ url reject
 # 直播间商品广告浮窗 //api.live.bilibili.com
-^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? reject-dict
+^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? url reject-dict
 # IP请求、地理位置请求 //api.bilibili.com
 # ^https:\/\/app\.bilibili\.com\/x\/resource\/ip reject
-# ^https:\/\/api\.bilibili\.com\/x\/web-interface\/zone\?jsonp=jsonp$ reject-200
+# ^https:\/\/api\.bilibili\.com\/x\/web-interface\/zone\?jsonp=jsonp$ url reject-200
 # 切换至腾讯CDN以提高视频加载速度
 # ^https?:\/\/upos-hz-mirrorakam\.akamaized\.net 307 https://upos-sz-mirrorcos.bilivideo.com
 
