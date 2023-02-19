@@ -490,6 +490,13 @@ rule-providers:
     url: https://gitlab.com/lodepuly/proxy_tool_resources/-/raw/master/rule/Clash/Speedtest/Speedtest.yaml
     interval: 10800
 
+  Bing:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Bing.yaml
+    url: https://gitlab.com/lodepuly/proxy_tool_resources/-/raw/master/rule/Clash/Bing/Bing.yaml
+    interval: 10800
+
   Microsoft:
     type: http
     behavior: classical
@@ -534,6 +541,7 @@ rules:
   - RULE-SET,AppleID,Apple ID
   - RULE-SET,AppStore,App Store
   - RULE-SET,Speedtest,Speedtest
+  - RULE-SET,Bing,地区选择
   - RULE-SET,Microsoft,Microsoft
   - RULE-SET,Google,地区选择
   - RULE-SET,Telegram,Telegram
