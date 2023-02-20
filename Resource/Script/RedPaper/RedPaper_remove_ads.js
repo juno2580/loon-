@@ -1,41 +1,68 @@
 /*
-version     v1.0.2
-updatetime  2022-12-08
-tgchannel   https://t.me/ddgksf2021
-function    小红书去开屏广告、瀑布流广告、启动广告
-author      ddgksf2013
+引用地址https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/xiaohongshu.js
 */
+// 2023-02-20 20:55
 
-if (/^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/system_service\/splash_config/.test($request.url)) {
-    var obj = JSON.parse($response.body);
-    obj.data.ads_groups.forEach((item) => {
-        item.start_time = "2208963661";
-        item.end_time = "2209050061";
-        if(item.ads){
-            item.ads.forEach((i) => {
-                i.start_time = "2208963661";
-                i.end_time = "2209050061";
-            });
-        }
-    });
-    $done({
-        body: JSON.stringify(obj),
-    });
-}
-if (/^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/homefeed\?/.test($request.url)) {
-    var obj = JSON.parse($response.body);
-    obj.data = Object.values(obj.data).filter((item) => !item.is_ads);
-    $done({
-        body: JSON.stringify(obj),
-    });
-}
-if (/^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/system_service\/config\?/.test($request.url)) {
-    var obj = JSON.parse($response.body);
-    //obj.data.tabbar.tabs = Object.values(obj.data.tabbar.tabs).filter((item) => !item.title == "购买");
+const url = $request.url;
+if (!$response.body) $done({});
+let obj = JSON.parse($response.body);
+
+if (url.includes("/v1/search/hot_list")) {
+  if (obj.data?.items) {
+    obj.data.items = [];
+  }
+} else if (url.includes("/v1/system_service/config")) {
+  // 小红书-开屏广告-config
+  if (obj.data) {
     delete obj.data.store;
     delete obj.data.splash;
     delete obj.data.loading_img;
-    $done({
-        body: JSON.stringify(obj),
+  }
+} else if (url.includes("/v2/system_service/splash_config")) {
+  // 小红书-开屏广告-splash_config
+  if (obj.data?.ads_groups) {
+    obj.data.ads_groups.forEach((i) => {
+      i.start_time = 2208960000; // Unix 时间戳 2040-01-01 00:00:00
+      i.end_time = 2209046399; // Unix 时间戳 2040-01-01 23:59:59
+      if (i.ads) {
+        i.ads.forEach((j) => {
+          j.start_time = 2208960000; // Unix 时间戳 2040-01-01 00:00:00
+          j.end_time = 2209046399; // Unix 时间戳 2040-01-01 23:59:59
+        });
+      }
     });
+  }
+} else if (url.includes("/v4/search/trending")) {
+  if (obj.data?.queries) {
+    obj.data.queries = [];
+  }
+  if (obj.data?.hint_word) {
+    obj.data.hint_word = {};
+  }
+} else if (url.includes("/v4/search/hint")) {
+  if (obj.data?.hint_words) {
+    obj.data.hint_words = [];
+  }
+} else if (url.includes("/v6/homefeed")) {
+  if (obj.data) {
+    // 小红书-信息流广告
+    let newItems = [];
+    for (let item of obj.data) {
+      // 去除直播
+      if (item.model_type === "live_v2") {
+        continue;
+        // 去除赞助,带货
+      } else if (item.ads_info) {
+        continue;
+        // 去除带货
+      } else if (item.card_icon) {
+        continue;
+      } else {
+        newItems.push(item);
+      }
+    }
+    obj.data = newItems;
+  }
 }
+
+$done({ body: JSON.stringify(obj) });
