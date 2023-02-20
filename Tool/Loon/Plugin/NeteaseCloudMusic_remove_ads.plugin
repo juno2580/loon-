@@ -6,39 +6,32 @@
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/NeteaseCloudMusic.png
 
 [Rewrite]
-# 通用
-^http:\/\/iadmat\.nosdn\.127\.net\/.* reject
-^http:\/\/iadmusicmat(video)?\.music\.126\.net\/.* reject
-^https:\/\/interface3\.music\.163\.com\/eapi\/music\/songshare\/text\/recommend\/get\? reject-dict
+# 歌单页、横幅广告
+^https:\/\/interface\.music\.163\.com\/weapi\/middle\/clientcfg\/config\/list\? reject-dict
+^https:\/\/interface3?\.music\.163\.com\/w?eapi\/resource-exposure\/(activity\/config\/get|config)\? reject-dict
 
 # 开屏广告、首页顶部横幅广告
 ^https?:\/\/interface3?\.music\.163.com\/eapi\/ad\/.* reject-dict
 
 # 搜索页、填充词、排行榜
-^https:\/\/interface3\.music\.163\.com\/api\/search\/rcmd\/keyword\/get\/v2\? reject-dict
-^https?:\/\/interface3?\.music\.163.com\/eapi\/search\/chart\/(detail|list)$ reject-dict
-^https?:\/\/interface3?\.music\.163.com\/eapi\/search\/default\/keyword\/list\? reject-dict
-^https?:\/\/interface3?\.music\.163.com\/eapi\/search\/rcmd\/keyword\/get\/v2$ reject-dict
-^https?:\/\/interface3?\.music\.163.com\/eapi\/search\/specialkeyword\/get\? reject-dict
+^https?:\/\/interface3?\.music\.163.com\/eapi\/search\/(chart\/(detail|list)$|default\/keyword\/list\?|rcmd\/keyword\/get\/v2\??|specialkeyword\/get\?) reject-dict
 
 # 播放页、多余图标、各种小提示、高品质音乐试用弹窗
-^https:\/\/interface3\.music\.163\.com\/eapi\/community\/friends\/fans-group\/artist\/group\/get\? url reject-dict
-^https:\/\/interface3\.music\.163\.com\/eapi\/link\/position\/show\/resource\? url reject-dict
-^https:\/\/interface3\.music\.163\.com\/eapi\/link\/position\/show\/strategy\? url reject-dict
-^https:\/\/interface3\.music\.163\.com\/eapi\/mlivestream\/entrance\/playpage\/v7\/get\? url reject-dict
-^https:\/\/interface3\.music\.163\.com\/eapi\/music\/songshare\/text\/recommend\/get\? url reject-dict
-^https:\/\/interface3\.music\.163\.com\/eapi\/user\/sub\/artist\/exist\? url reject-dict
-^https:\/\/interface3\.music\.163\.com\/eapi\/vipcenter\/tspopup\/get\? url reject-dict
-^https?:\/\/interface3\.music\.163\.com\/eapi\/resniche\/position\/play\/new\/get\? url reject-dict
+^https:\/\/interface3\.music\.163\.com\/eapi\/(link\/position\/show\/(resource|strategy)|music\/songshare\/text\/recommend\/get)\? reject-dict
+^https:\/\/interface3\.music\.163\.com\/eapi\/(mlivestream\/entrance\/playpage\/v7|community\/friends\/fans-group\/artist\/group)\/get\? reject-dict
+^https:\/\/interface3\.music\.163\.com\/eapi\/(user\/sub\/artist\/exist|vipcenter\/tspopup\/get)\? reject-dict
+^https?:\/\/interface3\.music\.163\.com\/eapi\/resniche\/position\/play\/new\/get\? reject-dict
 
 # 评论页、回复广告、星评馆
-^https:\/\/interface3\.music\.163\.com\/eapi\/comment\/hotcomment\/collect\/fetchmodelinfov2\? reject-dict
-^https?:\/\/interface3\.music\.163\.com\/eapi\/comment\/feed\/inserted\/resources\? reject-dict
+^https?:\/\/interface3\.music\.163\.com\/eapi\/comment\/(hotcomment\/collect\/fetchmodelinfov2|feed\/inserted\/resources)\? reject-dict
 ^https?:\/\/interface3\.music\.163\.com\/eapi\/v1\/content\/exposure\/comment\/banner\/get\? reject-dict
 
 # 首页、右上角多余图标、会员续费弹窗
-^https:\/\/interface3\.music\.163\.com\/eapi\/link\/scene\/show\/resource\? reject-dict
-^https:\/\/interface3\.music\.163\.com\/eapi\/vipauth\/app\/auth\/recycle\? reject-dict
+^https:\/\/interface3\.music\.163\.com\/eapi\/(homepage\/banner\/ad\/get|link\/scene\/show\/resource)\? reject-dict
+^https:\/\/interface3\.music\.163\.com\/eapi\/(music-vip-membership\/client\/vip\/info|vipauth\/app\/auth\/recycle)\? reject-dict
+
+# 我的页面、小部件红点
+^https:\/\/interface3\.music\.163\.com\/eapi\/mine\/applet\/redpoint\? reject-dict
 
 [MITM]
 hostname = interface*.music.163.com
