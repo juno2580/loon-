@@ -1,7 +1,7 @@
 /*
 引用地址https://github.com/RuCu6/QuanX/raw/main/Rewrites/Cube/amap.snippet
 */
-// 2023-02-21 15:25
+// 2023-02-21 15:55
 
 const url = $request.url;
 if (!$response.body) $done({});
@@ -11,25 +11,14 @@ if (url.includes("/faas/amap-navigation/main-page")) {
   // 首页底部卡片
   if (obj.data.cardList) {
     obj.data.cardList = obj.data.cardList.filter(
-      (i) => 
-        !(
-          i.dataKey === "AmapVoiceCard" || // 语音引导卡
-          i.dataKey === "BusinessBanner" || // 轮播banner卡
-          i.dataKey === "FoodRecommend" || // 美食推荐卡
-          i.dataKey === "LocalCombineRecommend" || // 本地酒旅融合卡
-          i.dataKey === "LocalTopListCard" // 本地榜单卡
-        )
+      (i) =>
+        i.dataKey === "ContinueNavigationCard" || // 继续导航
+        i.dataKey === "FrequentLocation" || // 常去地点
+        i.dataKey === "LoginCard" // 登陆卡片
     );
   }
   if (obj.data.mapBizList) {
-    obj.data.mapBizList = obj.data.mapBizList.filter(
-      (i) =>
-        !(
-          i.dataKey === "SddTileOffsiteHotel" ||
-          i.dataKey === "OffsiteHotel" ||
-          i.dataKey === "PoiRecommendVirtualCard"
-        )
-    );
+    obj.data.mapBizList = [];
   }
 } else if (url.includes("/mapapi/poi/infolite")) {
   // 搜索结果 列表详情
