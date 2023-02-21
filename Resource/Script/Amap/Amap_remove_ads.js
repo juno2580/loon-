@@ -1,7 +1,7 @@
 /*
 引用地址https://github.com/RuCu6/QuanX/raw/main/Rewrites/Cube/amap.snippet
 */
-// 2023-02-21 12:50
+// 2023-02-21 15:25
 
 const url = $request.url;
 if (!$response.body) $done({});
@@ -15,8 +15,9 @@ if (url.includes("/faas/amap-navigation/main-page")) {
         !(
           i.dataKey === "AmapVoiceCard" || // 语音引导卡
           i.dataKey === "BusinessBanner" || // 轮播banner卡
-          i.dataKey === "LocalTopListCard" || // 本地榜单卡
-          i.dataKey === "FoodRecommend" // 美食推荐卡
+          i.dataKey === "FoodRecommend" || // 美食推荐卡
+          i.dataKey === "LocalCombineRecommend" || // 本地酒旅融合卡
+          i.dataKey === "LocalTopListCard" // 本地榜单卡
         )
     );
   }
