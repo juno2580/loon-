@@ -20,9 +20,16 @@ if (url.includes("/faas/amap-navigation/main-page")) {
         )
     );
   }
-  // if (obj.data.mapBizList) {
-    // obj.data.mapBizList = [];
-  // }
+  if (obj.data.mapBizList) {
+    obj.data.mapBizList = obj.data.mapBizList.filter(
+      (i) =>
+        !(
+          i.dataKey === "SddTileOffsiteHotel" ||
+          i.dataKey === "OffsiteHotel" ||
+          i.dataKey === "PoiRecommendVirtualCard"
+        )
+    );
+  }
 } else if (url.includes("/mapapi/poi/infolite")) {
   // 搜索结果 列表详情
   if (obj.data.district) {
@@ -82,9 +89,11 @@ if (url.includes("/faas/amap-navigation/main-page")) {
 } else if (url.includes("/shield/frogserver/aocs")) {
   // 首页右上角
   const item = [
-    "operation_layer", // 首页右上角图层
+    "his_input_tip",
     "home_business_position_config", // 首页右上角动图
-    "his_input_tip"
+    "hotel_activity",
+    "hotel_tipsicon",
+    "operation_layer" // 首页右上角图层
   ];
   for (let i of item) {
     if (obj.data?.[i]) {
@@ -222,7 +231,8 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     "surround_selloffice",
     // "traffic", // 交通出行 地铁站 公交站 停车场
     "uploadBar",
-    "upload_bar" // 上传照片
+    "upload_bar", // 上传照片
+    "verification" // 商家已入驻
     // "video",
   ];
   if (obj.data.modules) {
@@ -236,17 +246,17 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     delete obj.data.coupon;
   }
   const bar = [
-    "coupon_float_bar",
-    "common_float_bar",
-    "coupon_discount_float_bar",
-    "mood_coupon_banner",
-    "image_cover_bar",
-    "promotion_wrap_card",
-    "discount_coupon",
-    "common_image_banner",
-    "tips_top_banner",
     "belt",
-    "operation_brand"
+    "common_float_bar",
+    "common_image_banner",
+    "coupon_discount_float_bar",
+    "coupon_float_bar",
+    "discount_coupon",
+    "image_cover_bar",
+    "mood_coupon_banner",
+    "operation_brand",
+    "promotion_wrap_card",
+    "tips_top_banner"
   ];
   if (obj.data.modules) {
     bar.forEach((i) => {
