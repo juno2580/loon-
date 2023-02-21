@@ -37,5 +37,8 @@
 # 我的页面处理 //app.bilibili.com
 ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\? url script-response-body https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js
 
+# 解锁4K画质及1080P高码率 //app.bilibili.com
+^https:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\? url script-response-body https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js
+
 #[mitm]
 hostname = app.bilibili.com, api.bilibili.com, api.live.bilibili.com, grpc.biliapi.net

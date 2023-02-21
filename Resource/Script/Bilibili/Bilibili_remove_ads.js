@@ -1,7 +1,7 @@
 /*
 引用地址：https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/bilibili/bili.js
 */
-// 2023-02-11 16:25
+// 2023-02-21 20:45
 
 const url = $request.url;
 let obj = JSON.parse($response.body);
@@ -111,19 +111,27 @@ if (!$response.body) {
           obj.data.live_tip = "";
           obj.data.answer = "";
           // 开启本地会员标识
-          // obj.data.vip_type = 2;
-          // obj.data.vip.type = 2;
-          // obj.data.vip.status = 1;
-          // obj.data.vip.vip_pay_type = 1;
-          // obj.data.vip.due_date = 2208960000; // Unix 时间戳 2040-01-01 00:00:00
+          if (obj.data.vip.status) {
+            return false;
+          } else {
+            obj.data.vip_type = 2;
+            obj.data.vip.type = 2;
+            obj.data.vip.status = 1;
+            obj.data.vip.vip_pay_type = 1;
+            obj.data.vip.due_date = 2208960000; // Unix 时间戳 2040-01-01 00:00:00
+          }
         });
       }
-    // } else if (url.includes("/x/v2/account/myinfo")) {
-    //   // 会员清晰度
-    //   obj.data.vip.type = 2;
-    //   obj.data.vip.status = 1;
-    //   obj.data.vip.vip_pay_type = 1;
-    //   obj.data.vip.due_date = 2208960000; // Unix 时间戳 2040-01-01 00:00:00
+    } else if (url.includes("/x/v2/account/myinfo")) {
+      // 会员清晰度
+      if (obj.data.vip.status) {
+        $done({});
+      } else {
+        obj.data.vip.type = 2;
+        obj.data.vip.status = 1;
+        obj.data.vip.vip_pay_type = 1;
+        obj.data.vip.due_date = 2208960000; // Unix 时间戳 2040-01-01 00:00:00
+      }
     } else if (url.includes("/x/v2/feed/index")) {
       // 推荐广告
       if (obj.data.items) {

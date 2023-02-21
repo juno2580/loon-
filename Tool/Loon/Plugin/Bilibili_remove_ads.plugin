@@ -39,5 +39,8 @@ http-response ^https:\/\/app\.bilibili\.com\/x\/resource\/show\/skin\? script-pa
 # 我的页面处理 //app.bilibili.com
 http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/mine\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 我的页面处理, img-url = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Bilibili.png
 
+# 解锁4K画质及1080P高码率 //app.bilibili.com
+http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/account\/myinfo\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 我的页面处理, img-url = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Bilibili.png
+
 [MITM]
 hostname = app.bilibili.com, api.bilibili.com, api.live.bilibili.com, grpc.biliapi.net
