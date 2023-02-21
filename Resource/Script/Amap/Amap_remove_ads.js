@@ -1,7 +1,7 @@
 /*
 引用地址https://github.com/RuCu6/QuanX/raw/main/Rewrites/Cube/amap.snippet
 */
-// 2023-02-21 15:55
+ // 2023-02-21 16:30
 
 const url = $request.url;
 if (!$response.body) $done({});
@@ -12,13 +12,17 @@ if (url.includes("/faas/amap-navigation/main-page")) {
   if (obj.data.cardList) {
     obj.data.cardList = obj.data.cardList.filter(
       (i) =>
+      (
         i.dataKey === "ContinueNavigationCard" || // 继续导航
         i.dataKey === "FrequentLocation" || // 常去地点
         i.dataKey === "LoginCard" // 登陆卡片
+      )
     );
   }
   if (obj.data.mapBizList) {
-    obj.data.mapBizList = [];
+    obj.data.mapBizList = obj.data.mapBizList.filter(
+      (i) => i.dataKey === "FindCarVirtualCard" // 显示关联车辆位置
+    );
   }
 } else if (url.includes("/mapapi/poi/infolite")) {
   // 搜索结果 列表详情
