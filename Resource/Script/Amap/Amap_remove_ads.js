@@ -1,7 +1,7 @@
 /*
 引用地址https://github.com/RuCu6/QuanX/raw/main/Rewrites/Cube/amap.snippet
 */
-// 2023-02-19 18:30
+// 2023-02-21 12:50
 
 const url = $request.url;
 if (!$response.body) $done({});
@@ -11,12 +11,18 @@ if (url.includes("/faas/amap-navigation/main-page")) {
   // 首页底部卡片
   if (obj.data.cardList) {
     obj.data.cardList = obj.data.cardList.filter(
-      (item) => item.dataKey === "LoginCard"
+      (i) => 
+        !(
+          i.dataKey === "AmapVoiceCard" || // 语音引导卡
+          i.dataKey === "BusinessBanner" || // 轮播banner卡
+          i.dataKey === "LocalTopListCard" || // 本地榜单卡
+          i.dataKey === "FoodRecommend" // 美食推荐卡
+        )
     );
   }
-  if (obj.data.mapBizList) {
-    obj.data.mapBizList = [];
-  }
+  // if (obj.data.mapBizList) {
+    // obj.data.mapBizList = [];
+  // }
 } else if (url.includes("/mapapi/poi/infolite")) {
   // 搜索结果 列表详情
   if (obj.data.district) {
@@ -64,7 +70,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
   // 我的页面
   if (obj.data.cardList) {
     obj.data.cardList = obj.data.cardList.filter(
-      (item) => item.dataKey === "MyOrderCard"
+      (i) => i.dataKey === "MyOrderCard"
     );
   }
   if (obj.data.tipData) {
@@ -89,26 +95,32 @@ if (url.includes("/faas/amap-navigation/main-page")) {
   // 附近页面
   if (obj.data.modules) {
     obj.data.modules = obj.data.modules.filter(
-      (item) =>
-        item === "head" || item === "search_hot_words" || item === "feed_rec"
+      (i) =>
+        i === "head" ||
+        i === "search_hot_words" ||
+        i === "feed_rec"
     );
   }
 } else if (url.includes("/shield/search/poi/detail")) {
   // 搜索结果 模块详情
   const item = [
+    // "anchor",
     // "base_info",
     "bigListBizRec", // 周边景点推荐 三张景点大图
     // "brand_introduction",
     // "brand_story",
+    "checkIn",
     "check_in", // 足迹打卡
+    "claim", // 立即认领 管理店铺
     "collector_guide", // 游玩的图文指南
     "common_coupon_bar", // 领券条幅 新客专享 省钱卡
     // "consultancy",
-    // "contributor",
+    "contributor", // 地点贡献
     // "coupon_allowance",
     // "coupon_entrance",
     // "cpt_service_shop",
     // "craftsman_entry",
+    // "crowd_index", // 人流量情况
     // "detailFeedCommodity",
     // "detail_bottom_shop_service",
     // "evaluate", // 高德出行评分
@@ -124,6 +136,9 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     "horizontalGoodsShelf",
     "hot_new_house_estate",
     "hot_shop",
+    "hotelCoupon",
+    // "hotelRooms", // 酒店所有房间
+    // "hourHotelRooms", // 钟点房
     "houseList",
     "houseOfficeBrandIntroduction",
     "houseOfficeInfo",
@@ -140,6 +155,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     // "human_traffic", // 人流量情况 有统计图
     // "legal_document",
     "listBizRec_2", // 周边餐饮
+    "membership", // 高德菲住卡 会员项目
     "movie_info", // 优惠购票 景点宣传片
     "multi_page_anchor", // 二级导航菜单 门票 评论 推荐
     "nearbyRecommendModule", // 周边推荐
@@ -147,6 +163,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     "nearby_new_house_estate",
     "nearby_office_estate",
     "nearby_old_sell_estate",
+    "newGuest", // 新客专享
     "newRelatedRecommends", // 探索周边
     "new_operation_banner", // 精选活动 高德的推广
     "newsellhouse",
@@ -156,12 +173,14 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     "officesellhouse",
     "official_account", // 其他平台官方账号
     "oldsellhouse",
+    // "opentime", // 营业时间
     "operation_banner", // 横版图片推广
     // "packageShelf",
     "parentBizRec",
     // "poi_intercept",
     "portal_entrance", // 高德旅游版块 引流到旅游频道
     // "question_answer_card", // 问问 地点附近的热门问题
+    "relatedRecommends", // 附近同类型酒店
     // "realtorRealStep",
     "renthouse",
     "rentsaleagencyv2",
@@ -169,6 +188,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     "rentsalehouse",
     // "residentialOwners",
     "reviews", // 用户评价
+    "roomSelect", // 选择订房日期 悬浮菜单
     // "same_price_new_estate",
     "scenic_coupon", // 优惠券过期提示
     "scenic_filter", // 购票悬浮菜单 可定明日 随时退
@@ -201,6 +221,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     "surround_rentoffice",
     "surround_selloffice",
     // "traffic", // 交通出行 地铁站 公交站 停车场
+    "uploadBar",
     "upload_bar" // 上传照片
     // "video",
   ];
@@ -210,14 +231,27 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     });
   }
 } else if (url.includes("/shield/search_poi/tips_operation_location")) {
-  // 搜索页面 地点建议
-  // 各种红包卡卷优惠
+  // 搜索页面 底部结果上方窄横幅
   if (obj.data.coupon) {
     delete obj.data.coupon;
   }
-  // 限时抢购横幅
-  if (obj.data.modules.promotion_wrap_card) {
-    delete obj.data.modules.promotion_wrap_card;
+  const bar = [
+    "coupon_float_bar",
+    "common_float_bar",
+    "coupon_discount_float_bar",
+    "mood_coupon_banner",
+    "image_cover_bar",
+    "promotion_wrap_card",
+    "discount_coupon",
+    "common_image_banner",
+    "tips_top_banner",
+    "belt",
+    "operation_brand"
+  ];
+  if (obj.data.modules) {
+    bar.forEach((i) => {
+      delete obj.data.modules[i];
+    });
   }
 } else if (url.includes("/valueadded/alimama/splash_screen")) {
   // 开屏广告
