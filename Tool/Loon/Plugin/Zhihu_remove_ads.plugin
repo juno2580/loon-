@@ -5,10 +5,11 @@
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Zhihu.png
 
-[URL Rewrite]
+[Rule]
 # 开屏广告
-^https:\/\/api\.zhihu\.com\/commercial_api\/(launch_v2|real_time_launch_v2)\? reject-dict
+URL-REGEX, ^https:\/\/api\.zhihu\.com\/commercial_api\/(launch_v2|real_time_launch_v2)\? REJECT
 
+[URL Rewrite]
 # 网页版去广告 //www.zhihu.com, zhuanlan.zhihu.com
 ^https:\/\/api\.zhihu\.com\/distribute\/rhea\/qa_ad_card\/h5\/recommendation\? reject-dict
 ^https:\/\/www\.zhihu\.com\/api\/v4/(questions|anwsers)\/\d+/related-readings url reject
