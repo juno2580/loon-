@@ -4,7 +4,7 @@
 
 配置作者：[可莉🅥](https://t.me/iKeLee)
 
-更新日期：2023-02-17
+更新日期：2023-02-23
 
 适用版本：3.0.3及以上
 
@@ -14,9 +14,9 @@
 
 #### 你应该在导入前备份好你正在用的配置文件：点击[配置]→[导出]→[存储到“文件”]
 
-[点击导入进阶配置文件](https://api.boxjs.app/loon/import?sub=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Config/Loon_Sample_Configuration_By_iKeLee.conf)
+[点击导入进阶配置文件](https://www.nsloon.com/openloon/import?sub=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Config/Loon_Sample_Configuration_By_iKeLee.conf)
 
-[点击导入最小配置文件](https://api.boxjs.app/loon/import?sub=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Config/Loon_Simple_Sample_Configuration_By_iKeLee.conf)
+[点击导入最小配置文件](https://www.nsloon.com/openloon/import?sub=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Config/Loon_Simple_Sample_Configuration_By_iKeLee.conf)
 
 
 ### 使用说明
