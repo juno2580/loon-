@@ -1,7 +1,7 @@
 /*
 引用地址：https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/weibo.js
 */
-// 2023-02-22 15:00
+ // 2023-02-22 16:20
 
 const url = $request.url;
 if (!$response.body) $done({});
@@ -84,6 +84,11 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             }
             let cardType = group.card_type;
             if (cardType !== 118) {
+              if (card?.show_type === 3) {
+                if (cardType !== 17) {
+                  continue;
+                }
+              }
               if (!isAd(group.mblog)) {
                 // 商品橱窗
                 if (group.mblog?.common_struct) {
@@ -105,11 +110,14 @@ if (url.includes("/interface/sdk/sdkad.php")) {
           // 17 猜你想搜
           // 58 猜你想搜偏好设置
           // 165 广告
-          if ([9, 17, 58, 165, 180, 1007].indexOf(cardType) !== -1) {
+          if ([9, 165].indexOf(cardType) !== -1) {
             if (!isAd(card.mblog)) {
               newCards.push(card);
             }
           } else {
+            if ([17, 58, 180, 1007].indexOf(cardType) !== -1) {
+              continue;
+            }
             newCards.push(card);
           }
         }
