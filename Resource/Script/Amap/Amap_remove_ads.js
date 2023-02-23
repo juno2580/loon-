@@ -1,7 +1,7 @@
 /*
 引用地址https://github.com/RuCu6/QuanX/raw/main/Rewrites/Cube/amap.snippet
 */
- // 2023-02-21 20:30
+// 2023-02-23 12:45
 
 const url = $request.url;
 if (!$response.body) $done({});
@@ -21,6 +21,21 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     obj.data.mapBizList = obj.data.mapBizList.filter(
       (i) => i.dataKey === "FindCarVirtualCard" // 显示关联车辆位置
     );
+  }
+} else if (url.includes("/faas/amap-navigation/usr-profile-fc/")) {
+  const item = [
+    "bulletData",
+    "cardList",
+    "dataList",
+    "homePageData",
+    "privateData",
+    "shareData",
+    "upgradeDialogData"
+  ];
+  for (let i of item) {
+    if (obj.data?.[i]) {
+      obj.data[i] = [];
+    }
   }
 } else if (url.includes("/mapapi/poi/infolite")) {
   // 搜索结果 列表详情
@@ -83,15 +98,26 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     delete obj.data.memberInfo;
   }
 } else if (url.includes("/shield/frogserver/aocs")) {
-  // 首页右上角
+  // 整体图层
   const item = [
+    "collect",
+    "footprint", // 足迹
+    "gd_notch_logo",
     "his_input_tip",
     "home_business_position_config", // 首页右上角动图
     "hotel_activity",
+    "hotel_loop",
     "hotel_tipsicon",
+    "icon_show",
+    "isNewSearchMapCard", // 可能是足迹
     "operation_layer", // 首页右上角图层
+    "photo_with_location",
+    "profileHeaderPic",
+    "profiletTopBtn",
     "splashscreen",
-    "testflight_adiu"
+    "testflight_adiu",
+    "vip",
+    "_user_profile_"
   ];
   for (let i of item) {
     if (obj.data?.[i]) {
