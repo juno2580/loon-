@@ -11,4 +11,17 @@
 # 摩托范弹窗广告
 ^https?:\/\/api-access\.pangolin-sdk-toutiao\.com\/api\/ad\/union\/sdk reject
 
+#网易新闻
+^https?:\/\/interface\.music\.163\.com\/eapi\/ad reject
+^https?:\/\/c\.m\.163\.com\/nc\/gl\/ reject
+^https?:\/\/client\.mail\.163\.com\/apptrack\/confinfo\/searchMultiAds reject
+^https?:\/\/g1\.163\.com\/madfeedback reject
+^https?:\/\/nex\.163\.com\/q reject
+^https?:\/\/interface\.music\.163\.com\/eapi\/ad\/ reject
+^https?:\/\/support\.you\.163\.com\/xhr\/boot\/getBootMedia\.json reject
+^https?:\/\/api-163\.biliapi\.net\/cover reject
+^https?:\/\/interface3?\.music\.163\.com/eapi/(ad|abtest|sp|hot|store|search/(specialkeyword|defaultkeyword|hot)) reject
+^https?:\/\/www.icourse163.org\/.*?(Advertisement) reject
+
 [MITM]
+hostname = www.icourse163.org, nex.163.com, c.m.163.com, g1.163.com, client.mail.163.com, interfac*.music.163.com, support.you.163.com, api.mh.163.com, p.du.163.com, api-163.biliapi.net
