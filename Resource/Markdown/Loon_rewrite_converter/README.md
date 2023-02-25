@@ -1,5 +1,5 @@
 ## 插件介绍
-将Quantumult X重写、Surge模块、Quantumult X规则、Stash规则和Clash的规则转换为Loon能识别的格式，将仅支持来自GitHub和GitLab的远程资源。
+将Quantumult X重写、Surge模块、Quantumult X规则、Stash规则和Clash的规则转换为Loon能识别的格式，仅支持来自GitHub和GitLab的远程资源。
 
 ## 使用说明
 Quantumult X重写需要在地址末尾加上qx
