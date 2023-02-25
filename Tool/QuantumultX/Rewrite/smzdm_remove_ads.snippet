@@ -5,14 +5,8 @@
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/QuantumultX/Rewrite
 
 #[rewrite_local]
-# 好价详情页去广告
-^https:\/\/haojia\.m\.smzdm\.com\/detail_modul\/other_modul url reject
-
-# 好价详情页红包小助手
-^https:\/\/haojia\.m\.smzdm\.com\/detail_modul\/user_related_modul url reject
-
-# Wiki(618晒物活动推广，将来可能不是广告)
-^https:\/\/haojia\.m\.smzdm\.com\/detail_modul\/wiki_related_modul url reject
+# 好价详情页去广告、红包小助手、Wiki(618晒物活动推广，将来可能不是广告)
+^https:\/\/haojia\.m\.smzdm\.com\/detail_modul\/(other|user_related|wiki_related)_modul url reject
 
 
 # 开屏去广告
@@ -30,11 +24,8 @@
 # 首页去广告
 ^https:\/\/homepage-api\.smzdm\.com\/v3\/home url script-response-body https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/smzdm/smzdm_remove_ads.js
 
-# 搜索标签去广告
-^https:\/\/s-api\.smzdm\.com\/sou\/filter\/tags\/hot_tags url script-response-body https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/smzdm/smzdm_remove_ads.js
-
-# 搜索结果去广告
-^https:\/\/s-api\.smzdm\.com\/sou\/list_v10 url script-response-body https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/smzdm/smzdm_remove_ads.js
+# 搜索标签去广告、搜索结果去广告
+^https:\/\/s-api\.smzdm\.com\/sou\/(filter\/tags\/hot_tags|list_v10) url script-response-body https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/smzdm/smzdm_remove_ads.js
 
 # 值会员权益中心banner广告
 ^https:\/\/zhiyou\.m\.smzdm\.com\/user\/vip\/ajax_get_banner url script-response-body https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/smzdm/smzdm_remove_ads.js
