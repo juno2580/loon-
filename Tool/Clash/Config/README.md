@@ -1,6 +1,6 @@
 ### 配置说明
 
-适用软件：[所有使用Clash Premium核心的程序](https://github.com/Dreamacro/clash/releases/tag/premium)
+适用软件：所有使用[Clash Premium核心](https://github.com/Dreamacro/clash/releases/tag/premium)的程序
 
 配置作者：[可莉🅥](tg://user?id=259049671)
 
