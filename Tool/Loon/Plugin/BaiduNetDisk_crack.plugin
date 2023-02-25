@@ -6,7 +6,7 @@
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/BaiduNetDisk.png
 
 [Script]
-http-response ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/BaiduNetDisk/BaiduNetDisk_crack.js, requires-body = true, tag = 解锁SVIP权益, img-url = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/BaiduNetDisk.png
+http-response ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/BaiduNetDisk/BaiduNetDisk_crack.js, requires-body = true, tag = 解锁SVIP权益
 
 [MITM]
 hostname = pan.baidu.com

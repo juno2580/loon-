@@ -6,7 +6,7 @@
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Emby.png
 
 [Script]
-http-response ^https?:\/\/mb3admin.com\/admin\/service\/registration\/validateDevice script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Emby/Emby_crack.js, requires-body=true, tag=Emby解锁, img-url=https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Emby.png
+http-response ^https?:\/\/mb3admin.com\/admin\/service\/registration\/validateDevice script-path=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Emby/Emby_crack.js, requires-body=true, tag=Emby解锁
 
 [Mitm]
 hostname = mb3admin.com
