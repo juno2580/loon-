@@ -1,28 +1,32 @@
 /****************************
-引用地址https://raw.githubusercontent.com/chengkongyiban/stash/main/js/rule_parser.js
    支持QX & Surge & clash 规则集解析
    适用app: Surge Shadowrocket Stash Loon
 ***************************/
-const ua = $request.headers['User-Agent'] || $request.headers['user-agent']
-const isStashiOS = 'undefined' !== typeof $environment && $environment['stash-version'] && ua.indexOf('Macintosh') === -1
+const isStashiOS = 'undefined' !== typeof $environment && $environment['stash-version'];
 const isSurgeiOS = 'undefined' !== typeof $environment && $environment['surge-version'];
 const isShadowrocket = 'undefined' !== typeof $rocket;
-const isLooniOS = 'undefined' != typeof $loon && /iPhone/.test($loon);
+const isLooniOS = 'undefined' != typeof $loon;
+const isLanceX = 'undefined' != typeof $native;
 
-let req = $request.url.replace(/r_parser.list$|r_parser.list\?.+/,'');
-let urlArg = $request.url.replace(/.+r_parser.list(\?.*)/,"$1");
+var req = $request.url.replace(/r_parser.list$|r_parser.list\?.+/,'');
+var urlArg
+
+if ($request.url.indexOf("r_parser.list?") != -1){
+        urlArg = $request.url.split("r_parser.list?")[1];
+    }else{urlArg = ""};
+    
 var original = [];//用于获取原文行号
 //获取参数
 var Rin0 = urlArg.indexOf("y=") != -1 ? (urlArg.split("y=")[1].split("&")[0].split("+")).map(decodeURIComponent) : null;
 var Rout0 = urlArg.indexOf("x=") != -1 ? (urlArg.split("x=")[1].split("&")[0].split("+")).map(decodeURIComponent) : null;
-//修改名字和简介
+var ipNoResolve = urlArg.indexOf("nore=") != -1 ? true : false;
 
 !(async () => {
   let body = await http(req);
 //判断是否断网
-if(body == null){if(isSurgeiOS || isStashiOS){
-    $notification.post("重写转换：未获取到body","请检查网络及节点是否畅通","认为是bug?点击通知反馈",{url:"https://t.me/zhangpeifu"})
- $done({ response: { status: 404 ,body:{} } });}else{$notification.post("重写转换：未获取到body","请检查网络及节点是否畅通","认为是bug?点击通知反馈","https://t.me/zhangpeifu")
+if(body == null){if(isSurgeiOS ||isLanceX || isStashiOS){
+    $notification.post("规则集转换：未获取到body","请检查网络及节点是否畅通","认为是bug?点击通知反馈",{url:"https://t.me/zhangpeifu"})
+ $done({ response: { status: 404 ,body:{} } });}else{$notification.post("规则集转换：未获取到body","请检查网络及节点是否畅通","认为是bug?点击通知反馈","https://t.me/zhangpeifu")
  $done({ response: { status: 404 ,body:{} } });
 }//识别客户端通知
 }else{//以下开始规则集解析
@@ -57,6 +61,13 @@ if(Rout0 != null){
 };//循环结束
 }else{};//增加注释结束
 
+//ip规则不解析域名
+if(ipNoResolve === true){
+    if (x.match(/^ip6?-c/i) != null){
+        x = x.replace(/(.+)/,"$1,no-resolve")
+    }else{};
+}else{};//增加ip规则不解析域名结束
+
     x = x.replace(/^#.+/,'').replace(/^host-wildcard/i,'HO-ST-WILDCARD').replace(/^host/i,'DOMAIN').replace(/^dest-port/i,'DST-PORT').replace(/^ip6-cidr/i,'IP-CIDR6')
     
     if (isStashiOS){
@@ -81,7 +92,7 @@ if(Rout0 != null){
             `  - ${ruleType},${ruleValue}${noResolve}`
             )
     };
-    }else if (isLooniOS){
+    }else if (isLooniOS || isLanceX){
     
     if (x.match(/^;#/)){
         let lineNum = original.indexOf(x.replace(/^;#/,"")) + 1;
@@ -134,9 +145,9 @@ others = (others[0] || '') && `\n#不支持的规则:\n#${others.join("\n#")}`;
 outRules = (outRules[0] || '') && `\n#已排除规则:\n#${outRules.join("\n#")}`;
 
 if (isStashiOS){
-    ruleSet = (ruleSet[0] || '') && `#规则数量:${ruleNum}\n#不支持的规则数量:${notSupport}\n#已排除的规则数量:${outRuleNum}${others}${outRules}\n\n #----------------以下为解析后的规则----------------#\n\npayload:\n${ruleSet.join("\n")}`;
+    ruleSet = (ruleSet[0] || '') && `#规则数量:${ruleNum}\n#不支持的规则数量:${notSupport}\n#已排除的规则数量:${outRuleNum}${others}${outRules}\n\n#-----------------以下为解析后的规则-----------------#\n\npayload:\n${ruleSet.join("\n")}`;
 }else{
-    ruleSet = (ruleSet[0] || '') && `#规则数量:${ruleNum}\n#不支持的规则数量:${notSupport}\n#已排除的规则数量:${outRuleNum}${others}${outRules}\n\n #----------------以下为解析后的规则----------------#\n\n${ruleSet.join("\n")}`;
+    ruleSet = (ruleSet[0] || '') && `#规则数量:${ruleNum}\n#不支持的规则数量:${notSupport}\n#已排除的规则数量:${outRuleNum}${others}${outRules}\n\n#-----------------以下为解析后的规则-----------------#\n\n${ruleSet.join("\n")}`;
 }
 
 body = `${ruleSet}`.replace(/t&zd;/g,',').replace(/ ;#/g," ");
