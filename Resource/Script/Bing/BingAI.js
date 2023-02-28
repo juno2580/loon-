@@ -1,3 +1,6 @@
+/*
+脚本作者：小白脸
+*/
    const headers = $request.headers;
 
    delete headers["user-agent"];
