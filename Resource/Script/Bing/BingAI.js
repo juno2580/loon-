@@ -1,5 +1,5 @@
 /*
-脚本作者：小白脸
+脚本原创：LiuYaChen
 */
 const headers = $request.headers;
 
