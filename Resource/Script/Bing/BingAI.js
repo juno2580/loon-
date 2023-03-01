@@ -14,4 +14,4 @@
    headers['sec-ch-ua-mobile'] = '?0'
    headers['sec-ch-ua-platform'] = 'macOS'
 
-   $done({headers:headers});
+   $done({ headers });
