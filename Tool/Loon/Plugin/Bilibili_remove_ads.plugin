@@ -6,7 +6,8 @@
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Bilibili.png
 
 [Rule]
-DOMAIN, grpc.biliapi.net, REJECT
+# 当开启MitM-over-HTTP2时，则无需此条。
+# DOMAIN, grpc.biliapi.net, REJECT
 IP-CIDR, 203.107.1.1/24, REJECT
 
 [Rewrite]
