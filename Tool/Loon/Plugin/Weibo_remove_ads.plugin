@@ -6,26 +6,12 @@
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Weibo.png
 
 [Rule]
-DOMAIN-SUFFIX, dns.weibo.cn, REJECT
-DOMAIN-SUFFIX, dp.im.weibo.cn, REJECT
-DOMAIN-SUFFIX, game.weibo.cn, REJECT
-DOMAIN-SUFFIX, gw5.push.mcp.weibo.cn, REJECT
-DOMAIN-SUFFIX, gw6.push.mcp.weibo.cn, REJECT
-DOMAIN-SUFFIX, promote.biz.weibo.cn, REJECT
-DOMAIN-SUFFIX, alitui.weibo.com, REJECT
-DOMAIN-SUFFIX, adimg.uve.weibo.com, REJECT
-DOMAIN-SUFFIX, biz.weibo.com, REJECT
-DOMAIN-SUFFIX, click.uve.weibo.com, REJECT
-DOMAIN-SUFFIX, game.weibo.com, REJECT
-DOMAIN-SUFFIX, sdkapp.uve.weibo.com, REJECT
-DOMAIN-SUFFIX, tui.weibo.com, REJECT
-DOMAIN-SUFFIX, wbapp.uve.weibo.com, REJECT
-DOMAIN-SUFFIX, zymo.mps.weibo.com, REJECT
-DOMAIN-SUFFIX, fastimage.uve.weibo.com, REJECT
-DOMAIN-SUFFIX, alitui.weibo.com.cn, REJECT
-DOMAIN-SUFFIX, biz.weibo.com.cn, REJECT
-DOMAIN-SUFFIX, game.weibo.com.cn, REJECT
-DOMAIN-SUFFIX, wax.weibo.com.cn, REJECT
+DOMAIN, adstrategy.biz.weibo.com, REJECT
+;DOMAIN, boot.biz.weibo.com, REJECT
+DOMAIN, kadmimage.biz.weibo.com, REJECT
+DOMAIN, sdkaction.biz.weibo.com, REJECT
+DOMAIN, sdkclick.biz.weibo.com, REJECT
+DOMAIN, sdkmonitor.biz.weibo.com, REJECT
 
 [Rewrite]
 ^https:\/\/api\.weibo\.cn\/2\/(ug\/checkin\/list|push\/daily)\? reject-dict
