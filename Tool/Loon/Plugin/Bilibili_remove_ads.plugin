@@ -11,17 +11,17 @@
 IP-CIDR, 203.107.1.1/24, REJECT
 
 [Rewrite]
-# 屏蔽默认搜索词 //app.bilibili.com
-^https:\/\/app\.bilibili\.com\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$ reject
+# 屏蔽默认搜索框关键词
+^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.interface\.v1\.Search\/DefaultWords reject
 # 直播间商品广告浮窗 //api.live.bilibili.com
 ^https:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? reject-dict
-# IP请求、地理位置请求 //api.bilibili.com
-# ^https:\/\/app\.bilibili\.com\/x\/resource\/ip reject
-# ^https:\/\/api\.bilibili\.com\/x\/web-interface\/zone\?jsonp=jsonp$ reject-200
-# 切换至腾讯CDN以提高视频加载速度
-# ^https?:\/\/upos-hz-mirrorakam\.akamaized\.net 307 https://upos-sz-mirrorcos.bilivideo.com
+# 屏蔽IP请求
+# ^https:\/\/app\.bilibili\.com\/x\/resource\/ip - reject
+# 将香港CDN切换至腾讯CDN以提高视频加载速度
+# ^https?:\/\/upos-hz-mirrorakam\.akamaized\.net 302 https://upos-sz-mirrorcos.bilivideo.com
 
 [Script]
+http-response ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.(view\.v1\.View\/View|dynamic\.v2\.Dynamic\/DynAll)$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_proto.js, requires-body = true, binary-body-mode = true, tag = HTTP2动态去广告
 # Proto 动态去广告 //app.bilibili.com
 http-response ^https:\/\/app\.bilibili\.com\/bilibili\.app\.dynamic\.v2\.Dynamic\/DynAll$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_proto.js, requires-body = true, binary-body-mode = true, tag = 动态去广告
 # Proto 播放页去广告 //app.bilibili.com, grpc.biliapi.net
