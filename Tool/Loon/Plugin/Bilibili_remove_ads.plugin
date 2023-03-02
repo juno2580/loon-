@@ -23,11 +23,11 @@ IP-CIDR, 203.107.1.1/24, REJECT
 
 [Script]
 # Proto 动态去广告 //app.bilibili.com
-http-response ^https:\/\/app\.bilibili\.com\/bilibili\.app\.dynamic\.v2\.Dynamic\/DynAll$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_proto.js, requires-body = true, binary-body-mode, tag = 动态去广告
+http-response ^https:\/\/app\.bilibili\.com\/bilibili\.app\.dynamic\.v2\.Dynamic\/DynAll$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_proto.js, requires-body = true, binary-body-mode = true, tag = 动态去广告
 # Proto 播放页去广告 //app.bilibili.com, grpc.biliapi.net
-http-response ^https:\/\/app\.bilibili\.com\/bilibili\.app\.playurl\.v1\.PlayURL\/PlayView$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_proto.js, requires-body = true, binary-body-mode, tag = 播放页去广告
+http-response ^https:\/\/app\.bilibili\.com\/bilibili\.app\.playurl\.v1\.PlayURL\/PlayView$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_proto.js, requires-body = true, binary-body-mode = true, tag = 播放页去广告
 # Proto 去除后台播放限制 //app.bilibili.com
-http-response ^https:\/\/app\.bilibili\.com\/bilibili\.app\.view\.v1\.View\/View$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_proto.js, requires-body = true, binary-body-mode, tag = 去除后台播放限制
+http-response ^https:\/\/app\.bilibili\.com\/bilibili\.app\.view\.v1\.View\/View$ script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_proto.js, requires-body = true, binary-body-mode = true, tag = 去除后台播放限制
 
 # 首页 推荐、热搜发现、右上角活动、标签页、观影页、直播
 http-response ^https:\/\/app\.bilibili\.com\/x\/v2\/(feed\/index|search\/square)\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Bilibili/Bilibili_remove_ads.js, requires-body = true, tag = 去除首页推荐及广告
