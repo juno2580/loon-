@@ -1,15 +1,13 @@
 # Clash 配置
-# 日期：2023.02.26
+# 日期：2023.03.02
 # 配置作者：https://t.me/iKeLee
 # 适用版本：所有使用 Premium 核心的Clash程序
 
-profile:
 port: 7890
 socks-port: 7891
 allow-lan: true
 mode: Rule
 log-level: silent
-tracing: true
 external-controller: 127.0.0.1:9090
 
 dns:
@@ -25,6 +23,9 @@ dns:
   fallback:
 # 腾讯DoH2
      - https://120.53.53.53/dns-query
+
+profile:
+  tracing: true
 
 # interval 代表间隔时间，单位为 s；
 # tolerance 代表容差时间，单位为 ms；
@@ -474,6 +475,13 @@ rule-providers:
     url: https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Clash/Rule/ApplePushNotificationService.yaml
     interval: 10800
 
+  AppleSoftwareUpdates:
+    type: http
+    behavior: classical
+    path: ./RuleSet/AppleID.yaml
+    url: https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Clash/Rule/AppleSoftwareUpdates.yaml
+    interval: 10800
+
   AppleID:
     type: http
     behavior: classical
@@ -551,6 +559,7 @@ rules:
   - RULE-SET,TestFlight,TestFlight
   - RULE-SET,iCloudChina,DIRECT
   - RULE-SET,ApplePushNotificationService,DIRECT
+  - RULE-SET,AppleSoftwareUpdates,DIRECT
   - RULE-SET,AppleID,Apple ID
   - RULE-SET,AppStore,App Store
   - RULE-SET,Speedtest,Speedtest
