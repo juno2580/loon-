@@ -5,6 +5,10 @@
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Bilibili.png
 
+[Rule]
+DOMAIN, grpc.biliapi.net, REJECT
+IP-CIDR, 203.107.1.1/24, REJECT
+
 [Rewrite]
 # 屏蔽默认搜索词 //app.bilibili.com
 ^https:\/\/app\.bilibili\.com\/bilibili\.app\.interface\.v1\.Search\/DefaultWords$ reject
