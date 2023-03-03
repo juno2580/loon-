@@ -5,6 +5,9 @@
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/smzdm.png
 
+[Rule]
+DOMAIN, api.zuihuimai.com, REJECT
+
 [Rewrite]
 # 好价详情页去广告、红包小助手、Wiki(618晒物活动推广，将来可能不是广告)
 ^https:\/\/haojia\.m\.smzdm\.com\/detail_modul\/(other|user_related|wiki_related)_modul reject
