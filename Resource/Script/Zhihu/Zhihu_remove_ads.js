@@ -1,7 +1,7 @@
 /*
 引用地址https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/zhihu.js
 */
-// 2023-03-01 19:00
+// 2023-03-04 15:45
 
 if (!$response.body) $done({});
 const url = $request.url;
@@ -13,9 +13,53 @@ if (url.includes("/appview/v3/zhmore")) {
   $done({ body });
 } else {
   let obj = JSON.parse(body);
-  if (url.includes("/appcloud2.zhihu.com/v3/config")) {
-    if (obj.config?.zhcnh_thread_sync?.ZHBackUpIP_Switch_Open === "1") {
-      obj.config.zhcnh_thread_sync.ZHBackUpIP_Switch_Open = "0";
+  if (url.includes("/api/cloud/config/all")) {
+    if (obj.data?.configs) {
+      obj.data.configs.forEach((i) => {
+        if (i.configKey === "feed_gray_theme") {
+          i.configValue.start_time = "2208960000";
+          i.configValue.end_time = "2209046399";
+          i.status = false;
+        } else if (i.configKey === "feed_top_res") {
+          i.configValue.start_time = "2208960000";
+          i.configValue.end_time = "2209046399";
+          i.status = false;
+        }
+      });
+    }
+  } else if (url.includes("/appcloud2.zhihu.com/v3/config")) {
+    if (obj.config) {
+      if (obj.config.homepage_feed_tab) {
+        obj.config.homepage_feed_tab.tab_infos = obj.config.homepage_feed_tab.tab_infos.filter((i) => {
+          if (i.tab_type === "activity_tab") {
+            i.start_time = "2208960000";
+            i.end_time = "2209046399";
+            return true;
+          } else {
+            return false;
+          }
+        });
+      }
+      if (obj.config.hp_channel_tab) {
+        delete obj.config.hp_channel_tab;
+      }
+      if (obj.config.zombie_conf) {
+        obj.config.zombie_conf.zombieEnable = false;
+      }
+      if (obj.config.gray_mode) {
+        obj.config.gray_modeenable = false;
+        obj.config.gray_mode.start_time = "2208960000";
+        obj.config.gray_mode.end_time = "2209046399";
+      }
+      if (obj.config.zhcnh_thread_sync) {
+        obj.config.zhcnh_thread_sync.LocalDNSSetHostWhiteList = [];
+        obj.config.zhcnh_thread_sync.isOpenLocalDNS = "0";
+        obj.config.zhcnh_thread_sync.ZHBackUpIP_Switch_Open = "0";
+        obj.config.zhcnh_thread_sync.dns_ip_detector_operation_lock = "1";
+        obj.config.zhcnh_thread_sync.ZHHTTPSessionManager_setupZHHTTPHeaderField = "1";
+      }
+      obj.config.zvideo_max_number = 1;
+      obj.config.is_show_followguide_alert = false;
     }
   } else if (url.includes("/api/v4/answers")) {
     if (obj.paging) {
