@@ -33,10 +33,25 @@ DOMAIN-SUFFIX, 163jiasu.com, REJECT
 ^https:\/\/interface3\.music\.163\.com\/eapi\/(user\/sub\/artist\/exist|vipcenter\/tspopup\/get)\? reject-dict
 ^https?:\/\/interface3\.music\.163\.com\/eapi\/resniche\/position\/play\/new\/get\? reject-dict
 
+<<<<<<< Updated upstream
+# 评论页、回复广告、星评馆
+^https?:\/\/interface3\.music\.163\.com\/eapi\/comment\/(hotcomment\/collect\/fetchmodelinfov2|feed\/inserted\/resources)\? reject-dict
+^https?:\/\/interface3\.music\.163\.com\/eapi\/v1\/content\/exposure\/comment\/banner\/get\? reject-dict
+<<<<<<< Updated upstream
+^https?:\/\/interface3\.music\.163\.com\/eapi\/v1\/content\/exposure\/comment\/banner reject-dict
+=======
+=======
+<<<<<<< HEAD
+# 播放页歌名下方、乐迷团、关注、播放页提示、音乐应用红点、播放提示
+^https?:\/\/interface3?\.music\.163\.com\/eapi\/(community\/friends\/fans-group\/artist\/group\/get|user\/sub\/artist|music\/songshare\/text\/recommend\/get|mine\/applet\/redpoint|resniche\/position\/play\/new\/get) reject-dict
+=======
 # 评论页、回复广告、星评馆
 ^https?:\/\/interface3\.music\.163\.com\/eapi\/comment\/(hotcomment\/collect\/fetchmodelinfov2|feed\/inserted\/resources)\? reject-dict
 ^https?:\/\/interface3\.music\.163\.com\/eapi\/v1\/content\/exposure\/comment\/banner\/get\? reject-dict
 ^https?:\/\/interface3\.music\.163\.com\/eapi\/v1\/content\/exposure\/comment\/banner reject-dict
+>>>>>>> main
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 # 首页、右上角多余图标、会员续费弹窗
 ^https:\/\/interface3\.music\.163\.com\/eapi\/(homepage\/banner\/ad\/get|link\/scene\/show\/resource)\? reject-dict
