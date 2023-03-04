@@ -28,7 +28,7 @@ Surge模块需要在地址末尾加上sg
 
 在链接后加“?”使用参数, 不同参数用“&”连接
 
-示例 https://raw.githubusercontent.com/chengkongyiban/shadowrocket/main/Block/bilibili.modulesg.stoverride?n=B站去广告+bilibili&y=魔改皮肤+Region&x=upos+简体字幕
+示例 https://raw.githubusercontent.com/chengkongyiban/Surge/main/modules/bilibili.sgmodule?n=B站去广告+bilibili&y=魔改皮肤+Region&x=upos+字幕转中文
 
 ### 规则集转换
 **y=** 根据关键词保留相关规则（即去掉注释） 多关键词以"+"分隔
