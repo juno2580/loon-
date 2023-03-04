@@ -8,6 +8,9 @@
 ;host, amdc.m.taobao.com, reject
 
 #[rewrite_local]
+# 通用广告请求
+^https?:\/\/m5\.amap\.com\/ws\/asa\/ads_attribution url reject
+
 # 导航详情页、路线规划、地点详情页
 ^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/card-service-route-plan\? url reject-dict
 ^https:\/\/m5\.amap\.com\/ws\/shield\/search\/new_hotword\? url reject-dict
