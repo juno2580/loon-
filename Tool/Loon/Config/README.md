@@ -21,10 +21,13 @@
 
 ### 使用说明
 
-暂时没空写使用说明，自行理解！
+1. 导入配置之后请[切换至自动分流](https://www.nsloon.com/openloon/flowmodel=filter)，将代理模式[切换至TUN Only](https://www.nsloon.com/openloon/proxymode=tun)
+模式
 
-先去设置策略组分组
-![](https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Config/Resource/001.png)
+2. 前往[配置]界面，打开[脚本]、[复写]和[MitM]三个功能的开关；
 
-分组后如下
-![](https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Tool/Loon/Config/Resource/002.png)
+3. 安装并信任证书；
+
+4. 添加你的订阅；
+
+5. 打开Loon的开关开始冲浪！
