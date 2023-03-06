@@ -20,18 +20,18 @@ if (!$response.body) {
       if (obj.data.tab) {
         obj.data.tab = [
           {
-            id: 41,
-            tab_id: "hottopic",
-            name: "热门",
-            uri: "bilibili://pegasus/hottopic",
-            pos: 1
-          },
-          {
             id: 40,
             tab_id: "推荐tab",
             default_selected: 1,
             name: "推荐",
             uri: "bilibili://pegasus/promo",
+            pos: 1
+          },
+          {
+            id: 41,
+            tab_id: "hottopic",
+            name: "热门",
+            uri: "bilibili://pegasus/hottopic",
             pos: 2
           },
           {
