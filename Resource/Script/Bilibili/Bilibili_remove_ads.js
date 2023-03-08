@@ -1,7 +1,7 @@
 /*
 引用地址：https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/bilibili/bili.js
 */
-// 2023-03-03 07:30
+// 2023-03-06 12:35
 
 const url = $request.url;
 let obj = JSON.parse($response.body);
@@ -72,7 +72,11 @@ if (!$response.body) {
       if (obj.data.bottom) {
         obj.data.bottom = obj.data.bottom.filter(
           (item) =>
-            item.name === "首页" || item.name === "动态" || item.name === "我的"
+            !(
+              item.name === "发布" ||
+              item.name === "会员购" ||
+              item.name === "節目"
+            )
         );
         fixPos(obj.data.bottom);
       }
@@ -96,7 +100,9 @@ if (!$response.body) {
       // 国际版：
       // 494离线缓存 495历史记录 496我的收藏 497稍后再看 741我的钱包 742稿件管理 500联系客服 501设置
       // 622为会员购中心 425开始为概念版id
-      const itemList = new Set([396, 397, 398, 399, 407, 410, 494, 495, 496, 497, 500, 501]);
+      const itemList = new Set([
+        396, 397, 398, 399, 407, 410, 494, 495, 496, 497, 500, 501
+      ]);
       if (obj.data?.sections_v2) {
         obj.data.sections_v2.forEach((element, index) => {
           let items = element.items.filter((e) => itemList.has(e.id));
