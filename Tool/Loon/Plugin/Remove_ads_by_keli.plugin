@@ -1,7 +1,7 @@
 #!name = 可莉广告过滤器
 #!desc = 可莉自用的广告过滤器
 #!open= 
-#!author = 可莉🅥
+#!author = 张军 RuCU6 可莉🅥
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/KeLi.png
 
@@ -12,7 +12,6 @@ DOMAIN, data.mistat.xiaomi.com, REJECT
 DOMAIN, tracking.intl.miui.com, REJECT
 # 米家
 DOMAIN, sdkconfig.ad.xiaomi.com, REJECT
-
 
 [Rewrite]
 # 摩托范弹窗广告
