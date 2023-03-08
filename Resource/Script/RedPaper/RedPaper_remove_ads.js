@@ -1,7 +1,7 @@
 /*
 引用地址https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/xiaohongshu.js
 */
-// 2023-02-20 20:55
+// 2023-03-04 11:10
 
 const url = $request.url;
 if (!$response.body) $done({});
@@ -12,14 +12,15 @@ if (url.includes("/v1/search/hot_list")) {
     obj.data.items = [];
   }
 } else if (url.includes("/v1/system_service/config")) {
-  // 小红书-开屏广告-config
+  // 整体配置
+  const item = ["app_theme", "loading_img", "splash", "store"];
   if (obj.data) {
-    delete obj.data.store;
-    delete obj.data.splash;
-    delete obj.data.loading_img;
+    item.forEach((i) => {
+      delete obj.data[i];
+    });
   }
 } else if (url.includes("/v2/system_service/splash_config")) {
-  // 小红书-开屏广告-splash_config
+  // 开屏广告
   if (obj.data?.ads_groups) {
     obj.data.ads_groups.forEach((i) => {
       i.start_time = 2208960000; // Unix 时间戳 2040-01-01 00:00:00
@@ -33,6 +34,7 @@ if (url.includes("/v1/search/hot_list")) {
     });
   }
 } else if (url.includes("/v4/search/trending")) {
+  // 搜索栏
   if (obj.data?.queries) {
     obj.data.queries = [];
   }
@@ -40,22 +42,26 @@ if (url.includes("/v1/search/hot_list")) {
     obj.data.hint_word = {};
   }
 } else if (url.includes("/v4/search/hint")) {
+  // 搜索栏填充词
   if (obj.data?.hint_words) {
     obj.data.hint_words = [];
   }
 } else if (url.includes("/v6/homefeed")) {
   if (obj.data) {
-    // 小红书-信息流广告
+    // 信息流广告
     let newItems = [];
     for (let item of obj.data) {
-      // 去除直播
+      // 信息流-直播
       if (item.model_type === "live_v2") {
         continue;
-        // 去除赞助,带货
+        // 信息流-赞助
       } else if (item.ads_info) {
         continue;
-        // 去除带货
+        // 信息流-带货
       } else if (item.card_icon) {
+        continue;
+        // 信息流-商品
+      } else if (item?.note_attributes?.includes("goods")) {
         continue;
       } else {
         newItems.push(item);
