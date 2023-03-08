@@ -1,7 +1,7 @@
 /*
 引用地址https://github.com/RuCu6/QuanX/raw/main/Rewrites/Cube/amap.snippet
 */
-// 2023-02-23 12:45
+// 2023-03-07 18:35
 
 const url = $request.url;
 if (!$response.body) $done({});
@@ -74,7 +74,17 @@ if (url.includes("/faas/amap-navigation/main-page")) {
   }
 } else if (url.includes("/promotion-web/resource")) {
   // 打车页面
-  let item = ["banner", "bubble", "icon", "popup", "tips"];
+  let item = [
+    "alpha", // 出行优惠套餐
+    "banner",
+    "bravo", // 第三方推广 喜马拉雅月卡
+    "bubble",
+    "charlie", // 横版推广 单单立减 领专属优惠 体验问卷
+    "icon",
+    "popup",
+    "push", // 顶部通知 发单立享优惠
+    "tips"
+  ];
   if (obj.data) {
     item.forEach((i) => {
       delete obj.data[i];
