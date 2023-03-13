@@ -77,5 +77,8 @@ DOMAIN, sdkconfig.ad.xiaomi.com, REJECT
 ^https:\/\/gw\.alicdn\.com\/tps\/.+\d{3,4}-\d{4} url reject
 ^https:\/\/acs\.m\.taobao\.com\/gw\/mtop\.taobao\.idle\.home\.welcome url reject
 
+# 微信乘车码 @jinlvei //ccmsupport-sz.tenpay.com
+^https:\/\/ccmsupport-sz\.tenpay\.com\/cgi-bin\/common\/ccm_page_element.cgi reject
+
 [MITM]
-hostname = api-access.pangolin-sdk-toutiao.com, nex.163.com, c.m.163.com, g1.163.com, client.mail.163.com, interfac*.music.163.com, support.you.163.com, api.mh.163.com, p.du.163.com, api.m.mi.com, *.huami.com, api.jr.mi.com, home.mi.com, shopapi.io.mi.com, img.dailmo.com, img.allahall.com, app.zhoudamozi.com, api.pinduoduo.com, api.yangkeduo.com, gw.alicdn.com, acs.m.taobao.com
+hostname = api-access.pangolin-sdk-toutiao.com, nex.163.com, c.m.163.com, g1.163.com, client.mail.163.com, interfac*.music.163.com, support.you.163.com, api.mh.163.com, p.du.163.com, api.m.mi.com, *.huami.com, api.jr.mi.com, home.mi.com, shopapi.io.mi.com, img.dailmo.com, img.allahall.com, app.zhoudamozi.com, api.pinduoduo.com, api.yangkeduo.com, gw.alicdn.com, acs.m.taobao.com, ccmsupport-sz.tenpay.com
