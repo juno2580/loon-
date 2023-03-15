@@ -86,7 +86,11 @@ if(body == null){if(isSurgeiOS || isLanceX || isStashiOS){
 }else{//以下开始重写及脚本转换
 
 original = body.replace(/^ *(#|;|\/\/) */g,'#').replace(/\x20.+url-and-header\x20/,' url ').replace(/\x20+url\x20+/g," url ").replace(/(^[^#].+)\x20+\/\/.+/g,"$1").split("\n");
-    body = body.match(/[^\r\n]+/g);
+
+if (body.match(/\/\*+\n[\s\S]*\n\*+\/\n/)){
+body = body.replace(/[\s\S]*(\/\*+\n[\s\S]*\n\*+\/\n)[\s\S]*/,"$1").match(/[^\r\n]+/g);
+}else{
+    body = body.match(/[^\r\n]+/g);};
     
 let httpFrame = "";
 let URLRewrite = [];
@@ -155,9 +159,8 @@ if (delNoteSc === true && x.match(/^#/)){
 };//剔除已注释重写结束
 
     let type = x.match(
-        /\x20url\x20script-|\x20url\x20reject$|\x20url\x20reject-|\x20echo-response\x20|\-header\x20|^hostname| url 30|\x20(request|response)-body|[^\s]+ [^\s]+ [^\s]+ [^\s]+ [^\s]+ ([^\s] )?(https?|ftp|file)/
+        /\x20url\x20script-|\x20url\x20reject$|\x20url\x20reject-|\x20echo-response\x20|\-header\x20|^hostname| url 30|\x20(request|response)-body|[^\s]+ [^u\s]+ [^\s]+ [^\s]+ [^\s]+ ([^\s] )?(https?|ftp|file)/
     )?.[0];
-
 //判断注释
 if (isLooniOS || isSurgeiOS || isLanceX || isShadowrocket){
     
@@ -355,10 +358,10 @@ others.push(lineNum + "行" + x)};
                 MITM = x.replace(/%.*%/g," ").replace(/\x20/g,"").replace(/,*\x20*$/,"").replace(/hostname=(.*)/, `[MITM]\n\nhostname = $1`).replace(/=\x20,+/,"= ");
                 }else if (isSurgeiOS || isLanceX || isShadowrocket){
                     
-                MITM = x.replace(/%.*%/g,"").replace(/\x20/g,"").replace(/,*\x20*$/,"").replace(/hostname=(.*)/, `[MITM]\n\nhostname = %APPEND% $1`).replace(/%\x20,+/,"% ");
+                MITM = x.replace(/%.*%/g,"").replace(/\x20/g,"").replace(/,{2,}/g,",").replace(/,*\x20*$/,"").replace(/hostname=(.*)/, `[MITM]\n\nhostname = %APPEND% $1`).replace(/%\x20,+/,"% ");
                 }else if (isStashiOS){
                     
-                MITM = x.replace(/%.*%/g,"").replace(/\x20/g,"").replace(/,*\x20*$/,"").replace(/hostname=(.*)/, `t&2;mitm:\nt&hn;"$1"`).replace(/",+/,'"');
+                MITM = x.replace(/%.*%/g,"").replace(/\x20/g,"").replace(/,{2,}/g,",").replace(/,*\x20*$/,"").replace(/hostname=(.*)/, `t&2;mitm:\nt&hn;"$1"`).replace(/",+/,'"');
                 };
                 break;
                 

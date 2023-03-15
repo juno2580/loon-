@@ -6,9 +6,9 @@
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/Other_icon/80px/RemoteResourceConverter.png
 
 [Script]
-http-request qx$|qx\?(jsc|hnadd|hndel|n|y|x|del|i)= script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/RemoteResourceConverter/RewriteQuantumultX.js, requires-body=true, tag = 转写Quantumult X重写
+http-request \/[^/]+\.[^/]+qx$|qx\?(jsc|hnadd|hndel|n|y|x|del|i)= script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/RemoteResourceConverter/RewriteQuantumultX.js, requires-body=true, tag = 转写Quantumult X重写
 
-http-request sg$|sg\?(jsc|hnadd|hndel|n|y|x|del|i)= script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/RemoteResourceConverter/RewriteSurge.js, requires-body=true, tag = 转写Surge模块
+http-request \/[^/]+\.[^/]+sg$|sg\?(jsc|hnadd|hndel|n|y|x|del|i)= script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/RemoteResourceConverter/RewriteSurge.js, requires-body=true, tag = 转写Surge模块
 
 http-request r_parser.list$|r_parser.list\?.* script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/RemoteResourceConverter/Rule_converter.js, requires-body=true, tag = 规则转换
 

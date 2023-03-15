@@ -30,7 +30,6 @@ if (isLooniOS){
     }else{urlArg = ""};
 };
 var rewriteName = req.substring(req.lastIndexOf('/') + 1).split('.')[0];
-console.log(urlArg)
 var original = [];//用于获取原文行号
 //获取参数
 var nName = urlArg.search(/\?n=|&n=/) != -1 ? (urlArg.split(/\?n=|&n=/)[1].split("&")[0].split("+")) : null;
@@ -79,9 +78,14 @@ if(body == null){if(isStashiOS){
 }else{//以下开始重写及脚本转换
 
 original = body.replace(/^ *(#|;|\/\/)/g,'#').replace(/ _ reject/g,' - reject').replace(/(^[^#].+)\x20+\/\/.+/g,"$1").split("\n");
-    body = body.match(/[^\r\n]+/g);
+
+if (body.match(/\/\*+\n[\s\S]*\n\*+\/\n/)){
+body = body.replace(/[\s\S]*(\/\*+\n[\s\S]*\n\*+\/\n)[\s\S]*/,"$1").match(/[^\r\n]+/g);
+}else{
+    body = body.match(/[^\r\n]+/g);};
 
 let httpFrame = "";
+let General = [];
 let rules = [];
 let script = [];
 let URLRewrite = [];
@@ -92,7 +96,7 @@ let MITM = "";
 let others = [];          //不支持的内容
 
 body.forEach((x, y, z) => {
-    x = x.replace(/^ *(#|;|\/\/)/,'#').replace(' _ reject',' - reject').replace(/(^[^#].+)\x20+\/\/.+/,"$1").replace(/hostname\x20*=/,'hostname=').replace(/cronexpr?\x20*=\x20*/gi,'cronexp=');
+    x = x.replace(/^ *(#|;|\/\/)/,'#').replace(' _ reject',' - reject').replace(/(^[^#].+)\x20+\/\/.+/,"$1").replace(/(hostname|force-http-engine-hosts|skip-proxy|always-real-ip)\x20*=/,'$1=').replace(/cronexpr?\x20*=\x20*/gi,'cronexp=');
 //去掉注释
 if(Pin0 != null)    {
     for (let i=0; i < Pin0.length; i++) {
@@ -107,7 +111,7 @@ if(Pin0 != null)    {
 if(Pout0 != null){
     for (let i=0; i < Pout0.length; i++) {
   const elem = Pout0[i];
-    if (x.indexOf(elem) != -1 && x.indexOf("hostname=") == -1){
+    if (x.indexOf(elem) != -1 && x.search(/^(hostname|force-http-engine-hosts|skip-proxy|always-real-ip)=/) == -1){
         x = x.replace(/(.+)/,"#$1")
     }else{};
 };//循环结束
@@ -119,7 +123,7 @@ if (hnAdd != null){
         x = x.replace(/\x20/g,"").replace(/(.+)/,`$1,${hnAdd}`).replace(/,{2,}/g,",");
     }else{};
 }else{};//添加主机名结束
-console.log(hnDel)
+
 //删除主机名
 if (hnDel != null && x.search(/^hostname=/) != -1){
     x = x.replace(/\x20/g,"").replace(/^hostname=/,"").replace(/%.*%/,"").replace(/,{2,}/g,",").split(",");
@@ -148,9 +152,8 @@ if (delNoteSc === true && x.match(/^#/)){
 };
 
     let type = x.match(
-        /http-re|\x20header-|cronexp|\x20-\x20reject|\x20data=|^hostname|\x20(302|307|header)$|(URL-REGEX|USER-AGENT|IP-CIDR|GEOIP|IP-ASN|DOMAIN|DEST-PORT)/
+        /http-re|\x20header-|cronexp=|\x20-\x20reject|\x20data=|^hostname|^force-http-engine-hosts|^skip-proxy|^always-real-ip|\x20(302|307|header)$|^#?(URL-REGEX|USER-AGENT|IP-CIDR|GEOIP|IP-ASN|DOMAIN|DEST-PORT)/
     )?.[0];
-
 //判断注释
 if (isLooniOS){
     
@@ -359,7 +362,7 @@ others.push(lineNum + "行" + x)};//整个http-re结束
                 break;
 
 //定时任务
-            case "cronexp":
+            case "cronexp=":
 
             let cronExp
             if (x.match(/cronexp=(.+?),[^,]+?=/)){
@@ -472,12 +475,39 @@ others.push(lineNum + "行" + x)};//整个http-re结束
             case "hostname":
             
             if (isLooniOS){
-                MITM = x.replace(/%.*%/g," ").replace(/\x20/g,"").replace(/,*\x20*$/,"").replace(/hostname=(.*)/, `[MITM]\n\nhostname = $1`).replace(/=\x20,+/,"= ");
+                MITM = x.replace(/%.*%/g," ").replace(/\x20/g,"").replace(/,{2,}/g,",").replace(/,*\x20*$/,"").replace(/hostname=(.*)/, `[MITM]\n\nhostname = $1`).replace(/=\x20,+/,"= ");
             }else if (isStashiOS){
-                MITM = x.replace(/%.*%/g,"").replace(/\x20/g,"").replace(/,*\x20*$/,"").replace(/hostname=(.*)/, `t&2;mitm:\nt&hn;"$1"`).replace(/",+/,'"');
+                MITM = x.replace(/%.*%/g,"").replace(/\x20/g,"").replace(/,{2,}/g,",").replace(/,*\x20*$/,"").replace(/hostname=(.*)/, `t&2;mitm:\nt&hn;"$1"`).replace(/",+/,'"');
             };
                 break;
-                
+
+//general          
+
+            case "force-http-engine-hosts":
+            
+            if (isLooniOS){
+                General.push(x.replace(/%.*%/g,"").replace(/ *= */," = "));
+            }else if (isStashiOS){
+                General.push(x.replace(/%.*%/g,"").replace(/\x20/g,"").replace(/,{2,}/g,",").replace(/,*\x20*$/,"").replace(/force-http-engine-hosts=(.*)/, `t&2;force-http-engine:\nt&hn;"$1"`).replace(/",+/,'"'))
+            };
+                break;
+                                
+            case "skip-proxy":
+            
+            if (isLooniOS){
+                General.push(x.replace(/%.*%/g,"").replace(/ *= */," = "));
+            }else if (isStashiOS){};
+                break;
+           
+            case "always-real-ip":
+            
+            if (isLooniOS){
+                General.push(x.replace(/%.*%/g,"").replace(/ *= */," = "));
+            }else if (isStashiOS){
+                General.push(x.replace(/%.*%/g,"").replace(/\x20/g,"").replace(/,{2,}/g,",").replace(/,*\x20*$/,"").replace(/always-real-ip=(.*)/, `t&2;fake-ip-filter:\nt&hn;"$1"`).replace(/",+/,'"'))
+            };
+                break;
+
             default:
 //重定向
                 if (type.match(/ (302|307|header)/)){
@@ -524,7 +554,7 @@ others.push(lineNum + "行" + x)};//整个http-re结束
                     x.replace(/.*URL-REGEX,([^\s]+),[^,]+/,
                     `${noteKn4}- $1 - reject${Urx2Reject}`)
                 );       
-                        }else if (type.match(/USER-AGENT|IP-CIDR|GEOIP|IP-ASN|DOMAIN|DEST-PORT/)){
+                        }else if (type.match(/#?(USER-AGENT|IP-CIDR|GEOIP|IP-ASN|DOMAIN|DEST-PORT)/)){
                             z[y - 1]?.match(/^#/)  && rules.push("    " + z[y - 1]);
                     
                     rules.push(x.replace(/\x20/g,"").replace(/.*DOMAIN-SET.+/,"").replace(/,REJECT.+/,",REJECT").replace(/DEST-PORT/,"DST-PORT").replace(/^#?(.+)/,`${noteK2}- $1`))    
@@ -538,6 +568,8 @@ others.push(lineNum + "行" + x)};
 }); //循环结束
 
 if (isLooniOS){
+    General = (General[0] || '') && `[General]\n\n${General.join("\n\n")}`;
+    
     script = (script[0] || '') && `[Script]\n\n${script.join("\n\n")}`;
 
 URLRewrite = (URLRewrite[0] || '') && `[Rewrite]\n\n${URLRewrite.join("\n")}`;
@@ -551,6 +583,9 @@ others = (others[0] || '') && `${others.join("\n")}`;
 body = `${name}
 ${desc}
 ${icon}
+
+
+${General}
 
 
 ${rules}
@@ -567,6 +602,9 @@ ${MITM}`
         .replace(/(#.+\n)\n+(?!\[)/g,'$1')
         .replace(/\n{2,}/g,'\n\n')
 }else if (isStashiOS){
+    
+    General = (General[0] || '') && `${General.join("\n")}`;
+    
     rules = (rules[0] || '') && `rules:\n${rules.join("\n")}`;
 
 script = (script[0] || '') && `  script:\n${script.join("\n\n")}`;
@@ -585,12 +623,18 @@ HeaderRewrite = HeaderRewrite.replace(/"/gi,'')
 
 others = (others[0] || '') && `${others.join("\n")}`;
 
+General = General.replace(/t&2;/g,'  ')
+           .replace(/t&hn;/g,'    - ')
+           .replace(/\,/g,'"\n    - "')
+
 MITM = MITM.replace(/t&2;/g,'  ')
            .replace(/t&hn;/g,'    - ')
            .replace(/\,/g,'"\n    - "')
 
-    if (URLRewrite != "" || script != "" || HeaderRewrite != "" || MITM != ""){
+    if (URLRewrite != "" || script != "" || HeaderRewrite != "" || MITM != "" || General != ""){
 httpFrame = `http:
+${General}
+
 ${HeaderRewrite}
 
 ${URLRewrite}
