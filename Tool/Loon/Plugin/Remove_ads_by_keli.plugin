@@ -12,6 +12,9 @@ DOMAIN, data.mistat.xiaomi.com, REJECT
 DOMAIN, tracking.intl.miui.com, REJECT
 # 米家
 DOMAIN, sdkconfig.ad.xiaomi.com, REJECT
+# TubeMax搜索栏广告
+DOMAIN-SUFFIX, applovin.com, REJECT
+
 
 [Rewrite]
 # 摩托范弹窗广告
