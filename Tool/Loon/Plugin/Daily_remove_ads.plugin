@@ -1,0 +1,12 @@
+#!name = 推栏去广告
+#!desc = 过滤推栏广告
+#!openUrl = 
+#!author = Keywos
+#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
+#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Daily.png
+
+[Script]
+http-response ^https?:\/\/m\.pvp\.xoyo\.com\/conf\/server-mapping script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script//Daily/Daily_remove_ads.js, requires-body = true, tag = 移除开屏广告
+
+[Mitm]
+hostname = m.pvp.xoyo.com
