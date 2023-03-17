@@ -6,7 +6,7 @@
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Baidu.png
 
 [Rewrite]
-^https?:\/\/(m|www)\.baidu\.com header-replace user-agent Mozilla/5.0 (iPhone; CPU iPhone OS 16_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SearchCraft/3.9.0 (Baidu; P2 16.3)
+^https?:\/\/m\.baidu\.com header-replace user-agent Mozilla/5.0 (iPhone; CPU iPhone OS 16_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SearchCraft/3.9.0 (Baidu; P2 16.3)
 
 [MITM]
-hostname = m.baidu.com, www.baidu.com
+hostname = m.baidu.com
