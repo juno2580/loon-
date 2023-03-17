@@ -1,4 +1,4 @@
-#!name = 替换百度搜索标识
+#!name = 百度搜索
 #!desc = 将浏览器伪装成百度搜索App，以获得无广告的搜索结果。此插件对百度搜索首页无效，只对搜索结果页有效。
 #!openUrl = 
 #!author = 可莉🅥
@@ -6,7 +6,7 @@
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Baidu.png
 
 [Rewrite]
-^https?:\/\/m\.baidu\.com header-replace user-agent Mozilla/5.0 (iPhone; CPU iPhone OS 16_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SearchCraft/3.9.0 (Baidu; P2 16.3)
+^https?:\/\/(m|www)\.baidu\.com header-replace user-agent Mozilla/5.0 (iPhone; CPU iPhone OS 16_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SearchCraft/3.9.0 (Baidu; P2 16.3)
 
 [MITM]
-hostname = m.baidu.com
+hostname = m.baidu.com, www.baidu.com
