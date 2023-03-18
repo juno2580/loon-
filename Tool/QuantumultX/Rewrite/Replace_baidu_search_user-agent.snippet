@@ -4,9 +4,9 @@
 #!author = 可莉🅥
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/QuantumultX/Rewrite
 
-[Rewrite]
+#[rewrite_local]    
 ^https?:\/\/www\.baidu\.com url 302 https://m.baidu.com
-^https?:\/\/m\.baidu\.com header-replace user-agent Mozilla/5.0 (iPhone; CPU iPhone OS 16_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SearchCraft/3.9.0 (Baidu; P2 16.3)
+^https?:\/\/m\.baidu\.com url request-header User-Agent:.+iPhone.+ request-header User-Agent:Mozilla/5.0 (iPhone; CPU iPhone OS 16_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SearchCraft/3.9.0 (Baidu; P2 16.3)
 
-[MITM]
+#[mitm]
 hostname = m.baidu.com, www.baidu.com
