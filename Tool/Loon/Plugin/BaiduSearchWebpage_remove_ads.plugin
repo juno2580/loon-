@@ -1,0 +1,23 @@
+#!name = 百度搜索去广告
+#!desc = 移除百度搜索移动端网页的广告
+#!openUrl = 
+#!author = 毒奶 可莉🅥
+#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
+#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Baidu.png
+
+[Rewrite]
+# 移除百度搜索结果广告
+http-response ^https?:\/\/(www|m)\.baidu\.com(\/s\?word.*|\/from.*?\/s\?word.*|\/from.*?word=.*) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/CommonLibrary/CommonLibrary.js, requires-body = true ,tag = 移除百度搜索结果广告, argument="<head>-><head><style> .ec_ad_results{display:none!important} </style>"
+
+[Script]
+# 移除百度知道搜索广告
+http-response ^https?:\/\/(zhidao)\.baidu\.com\/(question|index|\?fr|\?word) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/BaiduSearch/BaiduZhidao_remove_ads.js, requires-body = true, tag = 移除百度知道搜索广告
+
+# 移除百度搜索首页广告
+http-response ^https?:\/\/(www|m)\.baidu\.com(/|\/\?ref.*|\/\?from.*)$  script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/BaiduSearch/BaiduSearchHomePage_remove_ads.js, requires-body = true, tag = 移除百度搜索首页广告
+
+# 百度防跳转
+http-response ^https?:\/\/boxer\.baidu\.com\/scheme\?scheme script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/BaiduSearch/RemoveBaiduSearchRedirect.js, tag = 移除百度搜索首页广告
+
+[MITM]
+hostname = boxer.baidu.com, m.baidu.com, www.baidu.com, zhidao.baidu.com
