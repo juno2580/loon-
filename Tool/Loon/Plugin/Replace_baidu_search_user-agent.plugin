@@ -1,5 +1,5 @@
 #!name = 伪装百度搜索
-#!desc = 将浏览器伪装成百度搜索App，以获得无广告的搜索结果。此插件对百度搜索首页无效，只对搜索结果页有效，并且会强制重定向到移动端页面。
+#!desc = 将百度搜索网页强制重定向到移动端页面，并将浏览器伪装成百度搜索App，以获得无广告的搜索结果。
 #!openUrl = 
 #!author = 可莉🅥 毒奶
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
