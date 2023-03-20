@@ -1,7 +1,7 @@
 /*
 引用地址https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/zhihu.js
 */
-// 2023-03-04 15:45
+// 2023-03-15 09:10
 
 if (!$response.body) $done({});
 const url = $request.url;
@@ -17,28 +17,33 @@ if (url.includes("/appview/v3/zhmore")) {
     if (obj.data?.configs) {
       obj.data.configs.forEach((i) => {
         if (i.configKey === "feed_gray_theme") {
-          i.configValue.start_time = "2208960000";
-          i.configValue.end_time = "2209046399";
-          i.status = false;
+          if (i.configValue) {
+            i.configValue.start_time = "2208960000";
+            i.configValue.end_time = "2209046399";
+            i.status = false;
+          }
         } else if (i.configKey === "feed_top_res") {
-          i.configValue.start_time = "2208960000";
-          i.configValue.end_time = "2209046399";
-          i.status = false;
+          if (i.configValue) {
+            i.configValue.start_time = "2208960000";
+            i.configValue.end_time = "2209046399";
+            i.status = false;
+          }
         }
       });
     }
   } else if (url.includes("/appcloud2.zhihu.com/v3/config")) {
     if (obj.config) {
       if (obj.config.homepage_feed_tab) {
-        obj.config.homepage_feed_tab.tab_infos = obj.config.homepage_feed_tab.tab_infos.filter((i) => {
-          if (i.tab_type === "activity_tab") {
-            i.start_time = "2208960000";
-            i.end_time = "2209046399";
-            return true;
-          } else {
-            return false;
-          }
-        });
+        obj.config.homepage_feed_tab.tab_infos =
+          obj.config.homepage_feed_tab.tab_infos.filter((i) => {
+            if (i.tab_type === "activity_tab") {
+              i.start_time = "2208960000";
+              i.end_time = "2209046399";
+              return true;
+            } else {
+              return false;
+            }
+          });
       }
       if (obj.config.hp_channel_tab) {
         delete obj.config.hp_channel_tab;
@@ -56,7 +61,8 @@ if (url.includes("/appview/v3/zhmore")) {
         obj.config.zhcnh_thread_sync.isOpenLocalDNS = "0";
         obj.config.zhcnh_thread_sync.ZHBackUpIP_Switch_Open = "0";
         obj.config.zhcnh_thread_sync.dns_ip_detector_operation_lock = "1";
-        obj.config.zhcnh_thread_sync.ZHHTTPSessionManager_setupZHHTTPHeaderField = "1";
+        obj.config.zhcnh_thread_sync.ZHHTTPSessionManager_setupZHHTTPHeaderField =
+          "1";
       }
       obj.config.zvideo_max_number = 1;
       obj.config.is_show_followguide_alert = false;
@@ -83,7 +89,9 @@ if (url.includes("/appview/v3/zhmore")) {
     }
   } else if (url.includes("/next-data")) {
     if (obj.data.data) {
-      obj.data.data = obj.data.data.filter((i) => !i?.type?.includes("ad"));
+      obj.data.data = obj.data.data.filter(
+        (i) => !(i?.type?.includes("ad") || i.data.answer_type === "PAID")
+      );
     }
   } else if (url.includes("/people/homepage_entry")) {
     const item = [
@@ -145,6 +153,9 @@ if (url.includes("/appview/v3/zhmore")) {
               "广告"
             )
           ) {
+            return false;
+          } else if (i?.promotion_extra) {
+            // 营销信息
             return false;
           }
           return true;
