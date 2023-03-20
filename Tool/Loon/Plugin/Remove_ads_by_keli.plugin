@@ -30,6 +30,9 @@ DOMAIN-SUFFIX, applovin.com, REJECT
 ^https?:\/\/support\.you\.163\.com\/xhr\/boot\/getBootMedia\.json reject
 ^https?:\/\/interface3?\.music\.163\.com/eapi/(ad|abtest|sp|hot|store|search/(specialkeyword|defaultkeyword|hot)) reject
 
+# 米家
+^https?:\/\/home\.mi\.com\/cgi-op\/api\/v1\/recommendation\/myTab reject
+
 # 小米
 ^https?:\/\/api\.m\.mi\.com\/v\d\/app\/start reject-200
 ^https?:\/\/api\.jr\.mi\.com\/v\d\/adv\/ reject-200
@@ -83,5 +86,9 @@ DOMAIN-SUFFIX, applovin.com, REJECT
 # 微信乘车码 @jinlvei //ccmsupport-sz.tenpay.com
 ^https:\/\/ccmsupport-sz\.tenpay\.com\/cgi-bin\/common\/ccm_page_element.cgi reject
 
+# QQ m.qianbao.qq.com
+^https?:\/\/m\.qianbao\.qq\.com\/services\/walletHome\/getQQshopData\?invisible reject
+^https?:\/\/m\.qianbao\.qq\.com\/pages\/walletHome\?invisible reject
+
 [MITM]
-hostname = api-access.pangolin-sdk-toutiao.com, nex.163.com, c.m.163.com, g1.163.com, client.mail.163.com, interfac*.music.163.com, support.you.163.com, api.mh.163.com, p.du.163.com, api.m.mi.com, *.huami.com, api.jr.mi.com, home.mi.com, shopapi.io.mi.com, img.dailmo.com, img.allahall.com, app.zhoudamozi.com, api.pinduoduo.com, api.yangkeduo.com, gw.alicdn.com, acs.m.taobao.com, ccmsupport-sz.tenpay.com
+hostname = api-access.pangolin-sdk-toutiao.com, nex.163.com, c.m.163.com, g1.163.com, client.mail.163.com, interfac*.music.163.com, support.you.163.com, api.mh.163.com, p.du.163.com, api.m.mi.com, *.huami.com, api.jr.mi.com, home.mi.com, shopapi.io.mi.com, img.dailmo.com, img.allahall.com, app.zhoudamozi.com, api.pinduoduo.com, api.yangkeduo.com, gw.alicdn.com, acs.m.taobao.com, ccmsupport-sz.tenpay.com, m.qianbao.qq.com
