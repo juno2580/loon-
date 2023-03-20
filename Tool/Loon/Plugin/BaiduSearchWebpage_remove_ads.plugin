@@ -10,7 +10,7 @@
 http-response ^https?:\/\/zhidao\.baidu\.com\/(question|index|\?fr|\?word) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/BaiduSearch/BaiduZhidao_remove_ads.js, requires-body = true, tag = 移除百度知道搜索广告
 
 # 移除百度搜索首页广告
-http-response ^https?:\/\/(www|m)\.baidu\.com(\/$|\/\?(ref|from).*) script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/BaiduSearch/BaiduSearchHomePage_remove_ads.js, requires-body = true, tag = 移除百度搜索首页广告
+http-response ^https?:\/\/(www|m)\.baidu\.com\/(\?(ref|from))? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/BaiduSearch/BaiduSearchHomePage_remove_ads.js, requires-body = true, tag = 移除百度搜索首页广告
 
 # 移除百度搜索结果广告
 http-response ^https?:\/\/(www|m)\.baidu\.com\/.*word=.* script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/BaiduSearch/BaiduSearchResults_remove_ads.js, requires-body = true ,tag = 移除百度搜索结果广告
