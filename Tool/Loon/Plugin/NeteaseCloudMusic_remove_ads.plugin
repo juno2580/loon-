@@ -5,8 +5,8 @@
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/QuantumultX/Rewrite
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/NeteaseCloudMusic.png
 
-[General]
-force-http-engine-hosts = 59.111.*:0
+#[General]
+#force-http-engine-hosts = 59.111.*:0
 
 [Rule]
 DOMAIN, gdt.qq.com, REJECT
