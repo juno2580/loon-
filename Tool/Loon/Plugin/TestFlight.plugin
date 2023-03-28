@@ -1,5 +1,5 @@
 #!name = TestFlight解锁
-#!desc = 解除TestFlight的区域限制，使用前需要将代理模式切换至TUN Only。
+#!desc = 解除TestFlight的区域限制
 #!openUrl = 
 #!author = NobyDa
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
