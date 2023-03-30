@@ -1,16 +1,16 @@
 /*
 脚本引用https://raw.githubusercontent.com/xream/scripts/main/surge/modules/replace-header/index.js
 
-  Surge 脚本实现 QX 的 request-header 重写类型
+Surge 脚本实现 QX 的 request-header 重写类型
   
-  如 QX：
+如Quantumult X重写：
 ^https?:\/\/request-header\.com url request-header (\r\n)User-Agent:.+(\r\n) request-header $1User-Agent: Chrome/71.0.3578.98 Safari/537.36$2
 ^https?:\/\/request-header\.com url response-header (\r\n)User-Agent:.+(\r\n) request-header $1User-Agent: Chrome/71.0.3578.98 Safari/537.36$2
    
-  可改写为 Surge：
+可改写为Loon复写：
 [Script] 
-test = type=http-request,timeout=10,script-update-interval=3600,pattern=^https?:\/\/httpbin\.org,script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/request-header/index.js, argument=(\r\n)User-Agent:.+(\r\n)->$1User-Agent: Chrome/71.0.3578.98 Safari/537.36$2
-test2 = type=http-response,timeout=10,script-update-interval=3600,pattern=^https?:\/\/httpbin\.org,script-path=https://raw.githubusercontent.com/xream/scripts/main/surge/modules/request-header/index.js, argument=(\r\n)Content-Type:.+(\r\n)->$1Content-Type: text/plain; charset=UTF-8$2
+http-request ^https?:\/\/httpbin\.org script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/CommonScript/replace-header.js, argument=(\r\n)User-Agent:.+(\r\n)->$1User-Agent: Chrome/71.0.3578.98 Safari/537.36$2, tag = 替换UA
+http-response ^https?:\/\/httpbin\.org script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/CommonScript/replace-header.js, argument=(\r\n)Content-Type:.+(\r\n)->$1Content-Type: text/plain; charset=UTF-8$2, tag = 替换UA
 
 [MITM]
 hostname = httpbin.org
@@ -19,6 +19,10 @@ argument=要匹配值=作为替换的值
 支持正则：如argument=\w+->test
 支持正则修饰符：如argument=/\w+/g->test
 支持多参数，如：argument=匹配值1->替换值1&匹配值2->替换值2
+
+
+此脚本仅做存档，Loon下可以用header-replace复写类型实现，具体示例如下：
+^https?:\/\/m\.baidu\.com header-replace user-agent Mozilla/5.0 (iPhone; CPU iPhone OS 16_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SearchCraft/3.9.0 (Baidu; P2 16.3)
 */
 const NAME = 'request-header'
 const TITLE = 'request-header'
