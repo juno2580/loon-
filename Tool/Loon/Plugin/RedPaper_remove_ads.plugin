@@ -1,5 +1,5 @@
 #!name = 小红书去广告
-#!desc = 过滤小红书广告
+#!desc = 过滤小红书广告，移除图片及视频水印。
 #!open= 
 #!author = chouchoui RuCu6
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/QuantumultX/Rewrite
@@ -23,6 +23,9 @@ http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v2\/system_service\/
 
 # 信息流
 http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v6\/homefeed\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/RedPaper/RedPaper_remove_ads.js, requires-body = true, tag = 移除信息流广告
+
+# 移除图片视频水印
+http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v[23]\/note\/(video)?feed\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/CommonLibrary/replace-body.js, requires-body = true, tag = 移除图片视频水印, argument=""disable_watermark":false,->"disable_watermark":true," 
 
 [MITM]
 hostname = edith.xiaohongshu.com, www.xiaohongshu.com
