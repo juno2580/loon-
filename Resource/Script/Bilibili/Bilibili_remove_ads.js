@@ -1,7 +1,7 @@
 /*
 引用地址：https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/bilibili/bili.js
 */
-// 2023-03-06 12:35
+ // 2023-03-29 19:35
 
 const url = $request.url;
 let obj = JSON.parse($response.body);
@@ -18,51 +18,22 @@ if (!$response.body) {
     } else if (url.includes("/x/resource/show/tab/v2")) {
       // 标签页
       if (obj.data.tab) {
-        obj.data.tab = [
-          {
-            id: 40,
-            tab_id: "推荐tab",
-            default_selected: 1,
-            name: "推荐",
-            uri: "bilibili://pegasus/promo",
-            pos: 1
-          },
-          {
-            id: 41,
-            tab_id: "hottopic",
-            name: "热门",
-            uri: "bilibili://pegasus/hottopic",
-            pos: 2
-          },
-          {
-            id: 151,
-            tab_id: "film",
-            name: "影视",
-            uri: "bilibili://pgc/cinema-tab",
-            pos: 3
-          },
-          {
-            id: 545,
-            tab_id: "bangumi",
-            name: "动画",
-            uri: "bilibili://pgc/home",
-            pos: 4
-          },
-          {
-            id: 39,
-            tab_id: "直播tab",
-            name: "直播",
-            uri: "bilibili://live/home",
-            pos: 5
-          }
-        ];
+        obj.data.tab = obj.data.tab.filter(
+          (item) =>
+            item.name === "推荐" ||
+            item.name === "热门" ||
+            item.name === "动画" ||
+            item.name === "影视" ||
+            item.name === "直播"
+        );
+        fixPos(obj.data.tab);
       }
       if (obj.data.top) {
         obj.data.top = [
           {
             id: 176,
             icon: "http://i0.hdslb.com/bfs/archive/d43047538e72c9ed8fd8e4e34415fbe3a4f632cb.png",
-            tab_id: "消息Top",
+            tab_id: "消息 Top",
             name: "消息",
             uri: "bilibili://link/im_home",
             pos: 1
@@ -91,15 +62,15 @@ if (!$response.body) {
     } else if (url.includes("/x/v2/account/mine")) {
       // 我的页面
       // 标准版：
-      // 396离线缓存 397历史记录 398我的收藏 399稍后再看 171个性装扮 172我的钱包 407联系客服 410设置
+      // 396 离线缓存 397 历史记录 398 我的收藏 399 稍后再看 171 个性装扮 172 我的钱包 407 联系客服 410 设置
       // 港澳台：
-      // 534离线缓存 8历史记录 4我的收藏 428稍后再看
-      // 352离线缓存 1历史记录 405我的收藏 402个性装扮 404我的钱包 544创作中心
+      // 534 离线缓存 8 历史记录 4 我的收藏 428 稍后再看
+      // 352 离线缓存 1 历史记录 405 我的收藏 402 个性装扮 404 我的钱包 544 创作中心
       // 概念版：
-      // 425离线缓存 426历史记录 427我的收藏 428稍后再看 171创作中心 430我的钱包 431联系客服 432设置
+      // 425 离线缓存 426 历史记录 427 我的收藏 428 稍后再看 171 创作中心 430 我的钱包 431 联系客服 432 设置
       // 国际版：
-      // 494离线缓存 495历史记录 496我的收藏 497稍后再看 741我的钱包 742稿件管理 500联系客服 501设置
-      // 622为会员购中心 425开始为概念版id
+      // 494 离线缓存 495 历史记录 496 我的收藏 497 稍后再看 741 我的钱包 742 稿件管理 500 联系客服 501 设置
+      // 622 为会员购中心 425 开始为概念版 id
       const itemList = new Set([
         396, 397, 398, 399, 407, 410, 494, 495, 496, 497, 500, 501
       ]);
@@ -125,7 +96,7 @@ if (!$response.body) {
           obj.data.live_tip = "";
           obj.data.answer = "";
           // 开启本地会员标识
-          if (obj.data.vip.status) {
+          if (obj.data.vip.status === 1) {
             return false;
           } else {
             obj.data.vip_type = 2;
@@ -133,18 +104,20 @@ if (!$response.body) {
             obj.data.vip.status = 1;
             obj.data.vip.vip_pay_type = 1;
             obj.data.vip.due_date = 2208960000; // Unix 时间戳 2040-01-01 00:00:00
+            obj.data.vip.role = 3;
           }
         });
       }
     } else if (url.includes("/x/v2/account/myinfo")) {
       // 会员清晰度
-      if (obj.data.vip.status) {
+      if (obj.data.vip.status === 1) {
         $done({});
       } else {
         obj.data.vip.type = 2;
         obj.data.vip.status = 1;
         obj.data.vip.vip_pay_type = 1;
         obj.data.vip.due_date = 2208960000; // Unix 时间戳 2040-01-01 00:00:00
+        obj.data.vip.role = 3;
       }
     } else if (url.includes("/x/v2/feed/index")) {
       // 推荐广告
@@ -173,7 +146,7 @@ if (!$response.body) {
                 "ad_inline_3d"
               ].includes(cardGoto)
             ) {
-              // ad_player大视频广告 ad_web_gif大gif广告 ad_web_s普通小广告 ad_av创作推广广告 ad_inline_3d 上方大的视频3d广告
+              //ad_player 大视频广告 ad_web_gif 大 gif 广告 ad_web_s 普通小广告 ad_av 创作推广广告 ad_inline_3d 上方大的视频 3d 广告
               return false;
             } else if (cardType === "small_cover_v10" && cardGoto === "game") {
               // 游戏广告
@@ -182,7 +155,7 @@ if (!$response.body) {
               cardType === "cm_double_v9" &&
               cardGoto === "ad_inline_av"
             ) {
-              // 创作推广-大视频广告
+              // 创作推广 - 大视频广告
               return false;
             }
           }
@@ -200,6 +173,12 @@ if (!$response.body) {
       // 开屏广告
       if (obj.data.show) {
         delete obj.data.show;
+      }
+      if (obj.data.event_list) {
+        obj.data.event_list = [];
+      }
+      if (obj.data.account) {
+        obj.data.account = {};
       }
     } else if (
       url.includes("/pgc/page/bangumi") ||
@@ -239,7 +218,7 @@ if (!$response.body) {
   $done({ body: JSON.stringify(obj) });
 }
 
-// 修复pos
+// 修复 pos
 function fixPos(arr) {
   for (let i = 0; i < arr.length; i++) {
     arr[i].pos = i + 1;
