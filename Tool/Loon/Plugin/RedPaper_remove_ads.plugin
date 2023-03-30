@@ -25,7 +25,7 @@ http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v2\/system_service\/
 http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v6\/homefeed\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/RedPaper/RedPaper_remove_ads.js, requires-body = true, tag = 移除信息流广告
 
 # 移除图片视频水印
-http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v[23]\/note\/(video)?feed\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/CommonScript/replace-body.js, requires-body = true, tag = 移除图片视频水印, argument=""disable_watermark":false,->"disable_watermark":true," 
+http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v[23]\/note\/(video)?feed\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/CommonScript/replace-body.js, requires-body = true, tag = 移除图片视频水印, argument="disable_watermark":false,->"disable_watermark":true,
 
 [MITM]
 hostname = edith.xiaohongshu.com, www.xiaohongshu.com
