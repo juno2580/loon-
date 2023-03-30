@@ -4,3 +4,4 @@ payload:
   - DOMAIN, cdn.auth0.com
   - DOMAIN, openaiapi-site.azureedge.net
   - DOMAIN, challenges.cloudflare.com
+  - DOMAIN-SUFFIX, identrust.com
