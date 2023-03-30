@@ -11,7 +11,7 @@ http-response ^https:\/\/api\.bcy\.net\/apiv2\/item\/detail\? script-path = http
 http-response ^https:\/\/api\.bcy\.net\/apiv2\/item\/detail\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/CommonScript/replace-body.js, requires-body = true, argument=""water_mark":true,->"water_mark":false,", tag = 移除图片视频水印
 http-response ^https:\/\/api\.bcy\.net\/apiv2\/item\/detail\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/CommonScript/replace-body.js, requires-body = true, argument=""forbidden_right_click":true,->"forbidden_right_click":false,", tag = 移除图片视频水印
 http-response ^https:\/\/api\.bcy\.net\/apiv2\/item\/detail\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/CommonScript/replace-body.js, requires-body = true, argument=""no_modify":false->"no_modify":true, tag = 移除图片视频水印
-http-response ^https:\/\/api\.bcy\.net\/apiv2\/item\/detail\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/CommonScript/replace-body.js, requires-body = true, argument="~tplv-bcyx-w650-logo-v2\:([\w\-]+) "~noop, tag = 移除图片视频水印
+http-response ^https:\/\/api\.bcy\.net\/apiv2\/item\/detail\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/CommonScript/replace-body.js, requires-body = true, argument="~tplv-bcyx-w650-logo-v2\:([\w\-]+)->~noop", tag = 移除图片视频水印
 
 [MITM]
 hostname = api.bcy.net
