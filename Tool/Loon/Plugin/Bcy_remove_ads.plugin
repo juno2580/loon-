@@ -5,7 +5,7 @@
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/QuantumultX/Rewrite
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Bcy.png
 
-[Rewrite]
+[Script]
 # 移除图片视频水印
 http-response ^https:\/\/api\.bcy\.net\/apiv2\/item\/detail\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/CommonScript/replace-body.js, requires-body = true, argument=""selected_status":1,->"selected_status":0,", tag = 移除图片视频水印
 http-response ^https:\/\/api\.bcy\.net\/apiv2\/item\/detail\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/CommonScript/replace-body.js, requires-body = true, argument=""water_mark":true,->"water_mark":false,", tag = 移除图片视频水印
