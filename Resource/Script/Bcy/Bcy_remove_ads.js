@@ -5,12 +5,12 @@ if (typeof $response == "undefined") {
 }
 
 let bodyObj = JSON.parse($response.body);
-bodyObj.properties.water_mark = false;
+bodyObj.data.properties.water_mark = false;
 
 
-let multi = bodyObj.multi;
+let multi = bodyObj.data.multi;
 for (var i = 0; i < multi.length; i ++) {
     multi[i].path = multi[i].original_path;
 }
 
-$done({"body":JSON.stringify(bodyObj)});
+$done({body:JSON.stringify(bodyObj)});
