@@ -39,9 +39,9 @@ let body;
 if (typeof $argument == "undefined") {
 	console.log("requires $argument");
 } else {
-	if ($script.type === "http-response") {
+    if ($response != undefined) {
 		body = $response.body;
-	} else if ($script.type === "http-request") {
+	} else if ($request != undefined) {
 		body = $request.body;
 	} else {
 		console.log("script type error");
