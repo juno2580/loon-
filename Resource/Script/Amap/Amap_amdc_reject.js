@@ -5,7 +5,7 @@
 
 const url = $request.url;
 const header = $request.headers;
-console.log(JSON.stringify(header))
+//console.log(JSON.stringify(header))
 
 if ("undefined" !== typeof $task) {
   let ua = header["User-Agent"];
