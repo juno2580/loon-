@@ -9,7 +9,7 @@ let ua = header["User-Agent"] || header["user-agent"];
 
 if (url.includes("/amdc/mobileDispatch")) {
   if (ua.includes("AMap")) {
-    $done({ status: "HTTP/1.1 404 Not Found", headers:{Connection:"close"}, body:""});
+    $done({ status: "HTTP/1.1 404 Not Found", headers:{Connection:"close"}, body:"{}"});
     return;
   }
 }
