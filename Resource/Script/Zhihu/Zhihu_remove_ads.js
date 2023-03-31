@@ -1,7 +1,7 @@
 /*
 引用地址https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/zhihu.js
 */
-// 2023-03-15 09:10
+// 2023-03-26 17:25
 
 if (!$response.body) $done({});
 const url = $request.url;
@@ -120,6 +120,10 @@ if (url.includes("/appview/v3/zhmore")) {
         }
       });
     }
+  } else if (url.includes("/root/window")) {
+    if (obj.guide) {
+      obj.guide = {};
+    }
   } else if (url.includes("/topstory/recommend")) {
     // 推荐信息流
     if (obj.data) {
@@ -149,7 +153,7 @@ if (url.includes("/appview/v3/zhmore")) {
             let videoID = str.substring(0, str.indexOf(","));
             i.common_card.feed_content.video.id = videoID;
           } else if (
-            i.common_card?.footline?.elements?.text?.panel_text?.includes(
+            i.common_card?.footline?.elements?.[0]?.text?.panel_text?.includes(
               "广告"
             )
           ) {
