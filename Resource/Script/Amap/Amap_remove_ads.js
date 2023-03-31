@@ -112,9 +112,9 @@ if (url.includes("/faas/amap-navigation/main-page")) {
   if (obj.data.tipData) {
     delete obj.data.tipData;
   }
-  if (obj.data.footPrintV2) {
-    delete obj.data.footPrintV2;
-  }
+  // if (obj.data.footPrintV2) {
+  //   delete obj.data.footPrintV2;
+  // }
   // 成就勋章 lv1 见习达人
   if (obj.data.memberInfo) {
     delete obj.data.memberInfo;
