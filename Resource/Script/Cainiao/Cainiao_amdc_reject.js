@@ -5,6 +5,7 @@
 
 const url = $request.url;
 const header = $request.headers;
+//console.log(JSON.stringify(header))
 
 if ("undefined" !== typeof $task) {
   let ua = header["User-Agent"];
@@ -14,8 +15,11 @@ if ("undefined" !== typeof $task) {
     $done({});
   }
 } else {
-  let ua = header["user-agent"];
-  if (ua.includes("Cainiao")) {
+  var ua = header["user-agent"];//h2
+  if (typeof ua == "undefined") {
+    ua = header["User-Agent"];//h1.1
+  }
+  if (ua.includes("AMap")) {
     $done();
   } else {
     $done({});
