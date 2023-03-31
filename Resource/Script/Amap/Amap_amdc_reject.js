@@ -7,12 +7,10 @@ const url = $request.url;
 const header = $request.headers;
 let ua = header["User-Agent"] || header["user-agent"];
 
-if (ua.includes("AMap")) {
-  if (typeof $task !== "undefined") {
+if (url.includes("/amdc/mobileDispatch")) {
+  if (ua.includes("AMap") || ua.includes("Cainiao")) {
     $done({ status: "HTTP/1.1 404 Not Found" });
-  } else {
-    $done();
+    return;
   }
-} else {
-  $done({});
 }
+$done({});
