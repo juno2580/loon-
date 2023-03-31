@@ -6,7 +6,6 @@
 
 #[rewrite_local]
 # 其他
-^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch$ url reject-dict
 ^https:\/\/m5\.amap\.com\/ws\/asa\/ads_attribution\? url reject-dict
 ^https:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend\? url reject-dict
 
@@ -25,13 +24,16 @@
 # 我的页面 - 足迹
 ^https:\/\/sns\.amap\.com\/ws\/userview\/footprint url reject-dict
 
-# 打车页、红点角标、弹窗、卡片
+# 打车页 - 红点角标、弹窗、卡片
 ^https:\/\/m5-zb\.amap\.com\/ws\/boss\/order(_web\/friendly_information|\/car\/king_toolbox_car_bubble)\? url reject-dict
 
 
+# 不明请求
+^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch url script-response-header https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_amdc_reject.js
+
 # 导航详情页 - 路线规划、地点详情页
 ^https:\/\/m5\.amap\.com\/ws\/shield\/search\/poi\/detail\? url script-response-body https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_remove_ads.js
-^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/tips_operation_location\? url script-response-body https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_remove_ads.js
+^https:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/(search\/sp|tips_operation_location)\? url script-response-body https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_remove_ads.js
 
 # 首页 - 卡片、红点角标、右上角动图、搜索框热词、左下角天气、天气动效图层、消息横幅
 ^https:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/main-page\? url script-response-body https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Amap/Amap_remove_ads.js
