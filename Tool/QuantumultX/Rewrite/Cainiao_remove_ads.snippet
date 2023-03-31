@@ -6,7 +6,7 @@
 
 #[rewrite_local]
 # 不明请求
-^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch url script-response-header https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Cainiao/Cainiao_amdc_reject.js
+^http:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch Cainiao url-and-header reject-dict
 
 # 通用广告请求[包含开屏广告]
 ^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads\.(show|mshow)\.cn url reject-200
