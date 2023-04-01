@@ -6,9 +6,7 @@
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Amap.png
 
 [Rule]
-DOMAIN, amap-aos-info-nogw.amap.com, REJECT
 DOMAIN, awaken.amap.com, REJECT
-DOMAIN, free-aos-cdn-image.amap.com, REJECT
 
 [Rewrite]
 # 其他
