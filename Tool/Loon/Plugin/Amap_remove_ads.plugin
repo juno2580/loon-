@@ -5,8 +5,8 @@
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/Amap.png
 
-[Rule]
-DOMAIN, awaken.amap.com, REJECT
+#[Rule]
+#DOMAIN, awaken.amap.com, REJECT
 
 [Rewrite]
 # 其他
