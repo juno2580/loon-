@@ -5,6 +5,10 @@
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/1.1.1.1.png
 
+[Proxy]
+DOMAIN, api.cloudflareclient.com, PROXY
+DOMAIN, zero-trust-client.cloudflareclient.com, PROXY
+
 [Script]
 # WARP节点查询
 generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/1.1.1.1/WARP_Node_Query.js, tag = WARP节点查询
