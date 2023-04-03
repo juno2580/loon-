@@ -1,7 +1,7 @@
 /*
 引用地址：https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/weibo.js
 */
-// 2023-04-02 18:30
+ // 2023-04-03 09:25
 
 const url = $request.url;
 if (!$response.body) $done({});
@@ -90,7 +90,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
               continue;
             }
             if (group.mblog) {
-              // 移除卡片挂件,关注按钮
+              // 移除卡片挂件，关注按钮
               removeAvatar(group.mblog);
             }
             newGroup.push(group);
@@ -99,12 +99,12 @@ if (url.includes("/interface/sdk/sdkad.php")) {
           newCards.push(card);
         } else {
           let cardType = card.card_type;
-          // 17猜你想搜 58搜索偏好设置
+          // 17 猜你想搜 58 搜索偏好设置
           if ([17, 58].includes(cardType)) {
             continue;
           }
           if (card.mblog) {
-            // 移除 卡片挂件,关注按钮
+            // 移除 卡片挂件，关注按钮
             removeAvatar(card.mblog);
           }
           newCards.push(card);
@@ -141,7 +141,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
           if (!isAd(item.data)) {
             // 微博伪装评论
             if (item.data.user) {
-              // 头像挂件,关注按钮
+              // 头像挂件，关注按钮
               removeAvatar(item.data);
               if (
                 item.data.user.name === "超话社区" ||
@@ -166,8 +166,15 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             if (item.data?.vip_button) {
               delete item.data.vip_button;
             }
-            // 6为你推荐更多精彩内容 15过滤提示
+            // 6 为你推荐更多精彩内容 15 过滤提示
             if (item?.type === 6 || item?.type === 15) {
+              continue;
+            }
+            if (
+              item?.adType === "相关内容" ||
+              item?.adType === "相关评论" ||
+              item?.adType === "推荐"
+            ) {
               continue;
             }
             newItems.push(item);
@@ -183,7 +190,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
           if (!isAd(item)) {
             // 微博伪装评论
             if (item.user) {
-              // 头像挂件,关注按钮
+              // 头像挂件，关注按钮
               removeAvatar(item);
               if (
                 item.user.name === "超话社区" ||
@@ -219,7 +226,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
         let newItems = [];
         for (let item of items) {
           if (item.user) {
-            // 头像挂件,关注按钮
+            // 头像挂件，关注按钮
             removeAvatar(item);
           }
           newItems.push(item);
@@ -248,7 +255,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
       obj.messages = newMsgs;
     }
   } else if (url.includes("/2/page")) {
-    // 搜索页列表,超话
+    // 搜索页列表，超话
     if (obj.cards) {
       if (obj.cards[0].card_group) {
         obj.cards[0].card_group = obj.cards[0].card_group.filter(
@@ -266,7 +273,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             i.itemid?.includes("feed_-_invite") || // 超话里的好友
             i.itemid?.includes("infeed_friends_recommend") || // 好友关注
             i.itemid?.includes("infeed_may_interest_in") || // 你可能感兴趣的超话
-            i.itemid?.includes("infeed_pagemanual3") || // 手动区域3
+            i.itemid?.includes("infeed_pagemanual3") || // 手动区域 3
             i.itemid?.includes("infeed_weibo_mall") || // 微博小店
             i?.mblog?.mblogtypename?.includes("广告")
           )
@@ -287,10 +294,10 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             newItems.push(item);
           }
         } else if (item.category === "group") {
-          // 遍历group,保留置顶微博
+          // 遍历 group, 保留置顶微博
           for (let ii of item.items) {
             if (ii.category === "feed") {
-              // 头像挂件,关注按钮
+              // 头像挂件，关注按钮
               removeAvatar(ii.data);
               newItems.push(item);
             }
@@ -334,13 +341,13 @@ if (url.includes("/interface/sdk/sdkad.php")) {
             item.items = item.items.filter(
               (i) =>
                 i.itemId === "100505_-_album" || // 我的相册
-                i.itemId === "100505_-_like" || // 赞/收藏
+                i.itemId === "100505_-_like" || // 赞 / 收藏
                 i.itemId === "100505_-_watchhistory" || // 浏览记录
                 i.itemId === "100505_-_draft" // 草稿箱
-              // i.itemId === "100505_-_pay" || // 我的钱包
-              // i.itemId === "100505_-_ordercenter" || // 我的订单
-              // i.itemId === "100505_-_productcenter" || // 创作中心
-              // i.itemId === "100505_-_promote" || // 广告中心
+              //i.itemId === "100505_-_pay" || // 我的钱包
+              //i.itemId === "100505_-_ordercenter" || // 我的订单
+              //i.itemId === "100505_-_productcenter" || // 创作中心
+              //i.itemId === "100505_-_promote" || // 广告中心
             );
           }
           newItems.push(item);
@@ -455,11 +462,11 @@ if (url.includes("/interface/sdk/sdkad.php")) {
           let newGroup = [];
           for (let group of cardGroup) {
             if (group.mblog) {
-              // 头像挂件,关注按钮
+              // 头像挂件，关注按钮
               removeAvatar(group.mblog);
             }
             let cardType = group.card_type;
-            // 17正在热搜卡片 22信息流横版广告图 25超话卡片(单个) 42正在热搜标题 182超话卡片(多个)
+            // 17 正在热搜卡片 22 信息流横版广告图 25 超话卡片 (单个) 42 正在热搜标题 182 超话卡片 (多个)
             if (![17, 22, 25, 42, 118, 182].includes(cardType)) {
               if (!isAd(group.mblog)) {
                 // 商品橱窗
@@ -475,7 +482,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
         } else {
           if (card.mblog) {
             if (!isAd(card.mblog)) {
-              // 头像挂件,关注按钮
+              // 头像挂件，关注按钮
               removeAvatar(card.mblog);
               newCards.push(card);
             }
@@ -489,7 +496,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
     url.includes("/2/statuses/container_timeline_unread") ||
     url.includes("/2/statuses/container_timeline_hot")
   ) {
-    // 首页关注tab信息流
+    // 首页关注 tab 信息流
     if (obj.loadedInfo?.headers) {
       delete obj.loadedInfo.headers;
     }
@@ -525,7 +532,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
         }
         if (item.category === "feed") {
           if (item.data) {
-            // 头像挂件,关注按钮
+            // 头像挂件，关注按钮
             removeAvatar(item.data);
           }
           newItems.push(item);
@@ -543,7 +550,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
       removeFeedAd(obj.text);
     }
   } else if (url.includes("/2/statuses/unread_hot_timeline")) {
-    // 首页推荐tab信息流
+    // 首页推荐 tab 信息流
     for (let s of ["ad", "advertises", "trends", "headers"]) {
       if (obj[s]) {
         delete obj[s];
@@ -604,7 +611,7 @@ if (url.includes("/interface/sdk/sdkad.php")) {
       obj.statuses = obj.statuses.filter((m) => !(m.mblogtypename === "广告"));
     }
   } else if (url.includes("/2/!/huati/discovery_home_bottom_channels")) {
-    // 超话左上角,右上角图标
+    // 超话左上角，右上角图标
     if (obj.button_configs) {
       delete obj.button_configs;
     }
@@ -640,17 +647,11 @@ function isAd(data) {
     if (data?.promotion?.type === "ad") {
       return true;
     }
-    if (data?.readtimetype === "adMblog") {
-      return true;
-    }
-    if (data?.readtimetype?.includes("_recommend")) {
-      return true;
-    }
   }
   return false;
 }
 
-// 移除头像挂件,关注按钮
+// 移除头像挂件，关注按钮
 function removeAvatar(data) {
   if (data?.buttons) {
     delete data.buttons;
@@ -682,7 +683,7 @@ function removeAvatar(data) {
 function checkSearchWindow(item) {
   if (
     item.data?.card_type === 19 || // 找人 热议 本地
-    item.data?.card_type === 118 || // finder_window 横版大图
+    item.data?.card_type === 118 || //finder_window 横版大图
     item.data?.card_type === 208 || // 实况热聊
     item.data?.card_type === 217 ||
     item.data?.card_type === 1005 ||
@@ -695,7 +696,7 @@ function checkSearchWindow(item) {
 }
 
 function removeFeedAd(item) {
-  // 头像挂件,关注按钮
+  // 头像挂件，关注按钮
   removeAvatar(item);
   if (item?.retweeted_status) {
     removeAvatar(item.retweeted_status);
