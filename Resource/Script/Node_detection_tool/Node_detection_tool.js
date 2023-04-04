@@ -42,14 +42,14 @@ let arrow = " ➟ "
 Promise.all([ytbTest(),disneyLocation(),nfTest(),daznTest(),parmTest(),discoveryTest(),gptTest()]).then(value => {
     let content = "--------------------------------------</br>"+([result["Dazn"],result["Discovery"],result["Paramount"],result["Disney"],result["Netflix"],result["YouTube"],result["ChatGPT"]]).join("</br></br>")
     content = content + "</br>--------------------------------------</br>"+"<font color=#CD5C5C>"+"<b>节点</b> ➟ " + nodeName+ "</font>"
-    content =`<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: thin">` + content + </p>
+    content =`<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: thin">` + content + `</p>`
     console.log(content);
     $done({"title":result["title"],"htmlMessage":content})
 }).catch (values => {
     console.log("reject:" + values);
     let content = "--------------------------------------</br>"+([result["Dazn"],result["Discovery"],result["Paramount"],result["Disney"],result["Netflix"],result["YouTube"],result["ChatGPT"]]).join("</br></br>")
     content = content + "</br>--------------------------------------</br>"+"<font color=#CD5C5C>"+"<b>节点</b> ➟ " + nodeName+ "</font>"
-    content =`<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: thin">` + content + </p>
+    content =`<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: thin">` + content + `</p>`
     $done({"title":result["title"],"htmlMessage":content})
 })
 
