@@ -6,5 +6,5 @@
 #!icon = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Node_detection_tool/icon/Node_detection_tool.png
 
 [Script]
-generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Node_detection_tool/Geo_location.js, timeout = 10, tag = 地理位置查询
-generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Node_detection_tool/Node_detection_tool.js, tag = 节点解锁查询
+generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Node_detection_tool/Geo_location.js, timeout = 10, tag = 地理位置查询, img-url = location.circle
+generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Node_detection_tool/Node_detection_tool.js, tag = 节点解锁查询, img-url = play.circle
