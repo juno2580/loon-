@@ -302,9 +302,10 @@ function discoveryTest() {
                 let p = {
                     url: Discovery_BASE_URL,
                     node: nodeName,
-                    timeout: 8000,
+                    timeout: 5000,
                     headers: {
                         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36',
+                        "Cookie": cookievalid,
                     }
                 }
                 $httpClient.get(p, (emsg, res, resData) => {
