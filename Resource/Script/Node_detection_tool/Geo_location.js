@@ -44,7 +44,7 @@ $httpClient.get(requestParams, (error, response, data) => {
     } else {
         console.log(data);
         message = data ? json2info(data, paras) : "";
-        $done({"title": "    🔎 IP.SB 查询结果", "htmlMessage": message});
+        $done({"title": "    地理位置查询结果", "htmlMessage": message});
     }
 })
 
