@@ -4,7 +4,7 @@
  * 节点检测工具
  * 脚本功能：检查节点是否支持以下流媒体服务：NetFlix、Disney、YouTuBe、Dazn、Param
  * For Loon 373+ Only, 小于373版本会有bug
- * 更新于：2022-04-11
+ * 更新于：2023-04-04
  * 原作者：XIAO_KOP
  * 现作者：Loon0x00
  */
@@ -58,7 +58,7 @@ function disneyLocation() {
         let params = {
             url: DISNEY_LOCATION_BASE_URL,
             node: nodeName,
-            timeout: 8000, //ms
+            timeout: 5000, //ms
             headers: {
                 'Accept-Language': 'en',
                 "Authorization": 'ZGlzbmV5JmJyb3dzZXImMS4wLjA.Cu56AgSfBTDag5NiRA81oLHkDZfu5L3CKadnefEAY84',
@@ -124,7 +124,7 @@ function disneyHomePage() {
         let params = {
             url: DISNEY_BASE_URL,
             node: nodeName,
-            timeout: 8000, //ms
+            timeout: 5000, //ms
             headers: {
                 'Accept-Language': 'en',
                 'User-Agent': UA,
@@ -209,7 +209,7 @@ function daznTest() {
         let params = {
             url: Dazn_BASE_URL,
             node: nodeName,
-            timeout: 9000, //ms
+            timeout: 5000, //ms
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36',
                 "Content-Type": "application/json"
@@ -249,7 +249,7 @@ function parmTest() {
         let params = {
             url: Param_BASE_URL,
             node: nodeName,
-            timeout: 9000, //ms
+            timeout: 5000, //ms
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36',
             }
@@ -281,7 +281,7 @@ function discoveryTest() {
         let params = {
             url: Discovery_token_BASE_URL,
             node: nodeName,
-            timeout: 8000, //ms
+            timeout: 5000, //ms
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36',
             }
@@ -344,7 +344,7 @@ function nfTest() {
         let params = {
             url: NF_BASE_URL,
             node: nodeName,
-            timeout: 8000, //ms
+            timeout: 5000, //ms
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36',
             }
@@ -392,7 +392,7 @@ function gptTest() {
         let params = {
             url: GPT_BASE_URL,
             node: nodeName,
-            timeout: 8000, //ms
+            timeout: 5000, //ms
         }
         $httpClient.get(params, (errormsg,response,data) => {
             console.log("----------GPT--------------");
@@ -409,9 +409,9 @@ function gptTest() {
                 let p = {
                     url: GPT_RegionL_URL,
                     node: nodeName,
-                    timeout: 8000, //ms
+                    timeout: 5000, //ms
                 }
-                $httpClient.get(p, (emsg, res, resData) => {
+                $httpClient.get(p, (emsg, resheader, resData) => {
                     console.log("----------GPT RegionL--------------");
                     if (emsg) {
                         console.log("GPT RegionL request error:" + errormsg);
