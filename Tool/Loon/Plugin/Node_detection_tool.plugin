@@ -7,4 +7,4 @@
 
 [Script]
 generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Node_detection_tool/Geo_location.js, timeout = 10, tag = 位置查询
-generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Node_detection_tool/Node_detection_tool, tag = 解锁查询
+generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Node_detection_tool/Node_detection_tool.js, tag = 解锁查询
