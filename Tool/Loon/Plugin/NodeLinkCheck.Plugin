@@ -1,9 +1,9 @@
 #!name = 代理链路检测
-#!desc = 需要将节点订阅添加到Sub-Store内，并使用Sub-Store生成的订阅链接添加到Loon订阅内，然后在所有节点内长按节点，在弹出的菜单内操作。
-#!openUrl = 
+#!desc = 查看目标节点的代理走向，点击下方链接查看使用方法。
+#!openUrl = https://gitlab.com/lodepuly/vpn_tool/-/blob/main/Resource/Markdown/NodeLinkCheck/README.md
 #!author = I-am-R-E
 #!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
 #!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Stack.png
 
 [Script]
-generic script-path = https://raw.githubusercontent.com/I-am-R-E/Functional-Store-Hub/Master/NodeLinkCheck/Script/NodeLinkCheck.js, tag = 代理链路检测
+generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/NodeLinkCheck/NodeLinkCheck.js, tag = 代理链路检测, img-url = link.circle
