@@ -6,6 +6,7 @@
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/TubeMax.png
 
 [Rule]
+DOMAIN, app.tubemaxapp.com, PROXY
 DOMAIN-SUFFIX, adjust.com, REJECT
 DOMAIN-SUFFIX, applvn.com, REJECT
 DOMAIN-SUFFIX, app-measurement.com, REJECT
