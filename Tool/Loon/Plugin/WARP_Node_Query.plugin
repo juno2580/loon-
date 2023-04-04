@@ -11,7 +11,7 @@ DOMAIN, zero-trust-client.cloudflareclient.com, PROXY
 
 [Script]
 # WARP节点查询
-generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/1.1.1.1/WARP_Node_Query.js, tag = WARP·Panel, img-url = icloud.circle
+generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/1.1.1.1/WARP_Node_Query.js, tag = WARP-Panel, img-url = icloud.circle
 
 [MITM]
 hostname = api.cloudflareclient.com, zero-trust-client.cloudflareclient.com
