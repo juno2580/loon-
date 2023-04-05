@@ -6,4 +6,4 @@
 #!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Stack.png
 
 [Script]
-generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/NodeLinkCheck/NodeLinkCheck.js, tag = 代理链路检测, img-url = link.circle
+generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/NodeLinkCheck/NodeLinkCheck.js, tag = 代理链路检测, img-url = link.circle.system
