@@ -1,7 +1,7 @@
 /*
 引用地址https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/zhihu.js
 */
-// 2023-03-26 17:25
+ // 2023-04-07 18:15
 
 if (!$response.body) $done({});
 const url = $request.url;
@@ -90,7 +90,7 @@ if (url.includes("/appview/v3/zhmore")) {
   } else if (url.includes("/next-data")) {
     if (obj.data.data) {
       obj.data.data = obj.data.data.filter(
-        (i) => !(i?.type?.includes("ad") || i.data.answer_type === "PAID")
+        (i) => !(i?.type?.includes("ad") || i?.data?.answer_type === "PAID")
       );
     }
   } else if (url.includes("/people/homepage_entry")) {
