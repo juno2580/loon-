@@ -40,11 +40,11 @@ $httpClient.get(requestParams, (error, response, data) => {
     if (error) {
         message = "</br></br>🔴 查询超时"
         message = `<p style="text-align: center; font-family: -apple-system; font-size: large; font-weight: bold;">` + message + `</p>`
-        $done({"title": "  地理位置查询结果", "htmlMessage": message});
+        $done({"title": "  地理位置查询", "htmlMessage": message});
     } else {
         console.log(data);
         message = data ? json2info(data, paras) : "";
-        $done({"title": "  地理位置查询结果", "htmlMessage": message});
+        $done({"title": "  地理位置查询", "htmlMessage": message});
     }
 })
 
