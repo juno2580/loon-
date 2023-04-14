@@ -1,9 +1,12 @@
+/*
+脚本引用https://raw.githubusercontent.com/chavyleung/scripts/master/box/chavy.boxjs.js
+*/
 const $ = new Env('BoxJs')
 
 // 为 eval 准备的上下文环境
 const $eval_env = {}
 
-$.version = '0.12.6'
+$.version = '0.12.9'
 $.versionType = 'beta'
 
 // 发出的请求需要需要 Surge、QuanX 的 rewrite
