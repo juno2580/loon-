@@ -2,7 +2,7 @@
 #!desc = 过滤小红书广告，移除图片及视频水印。
 #!open= 
 #!author = chouchoui RuCu6
-#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/QuantumultX/Rewrite
+#!homepage = https://gitlab.com/lodepuly/vpn_tool/-/tree/main/Tool/Loon/Plugin
 #!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/App_icon/80px/RedPaper.png
 
 [Rewrite]
