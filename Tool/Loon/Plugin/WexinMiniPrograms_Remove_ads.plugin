@@ -115,7 +115,6 @@
 #小兔充充 @是豆豆呀 ad.xiaotucc.com, mapi.xiaotucc.com
 ^https:\/\/ad\.xiaotucc\.com\/advert reject
 
-
 #U净 @是豆豆呀 api-marketing.zhinengxiyifang.cn
 ^https:\/\/api-marketing\.zhinengxiyifang\.cn\/api\/v2\/cloudcode\/wechat\/bid reject
 
@@ -129,6 +128,7 @@
 #乘车码 @jinlvei ccmsupport-sz.tenpay.com
 ^https:\/\/ccmsupport-sz\.tenpay\.com\/cgi-bin\/common\/ccm_page_element.cgi reject
 
+
 [Script]
 #EMS中国邮政物流速递 @TEAXS ump.ems.com.cn
 http-response ^https:\/\/ump\.ems\.com\.cn\/new-generation-extend\/redis\/pageInfoByChannel script-path = https://raw.githubusercontent.com/jizhi0520/QX/main/ems.js, requires-body = true, tag = EMS中国邮政物流速递去广告
@@ -139,5 +139,9 @@ http-response ^https:\/\/common\.diditaxi\.com\.cn\/common\/v5 script-path = htt
 #小兔充充 @TEAXS mapi.xiaotucc.com
 http-response ^https:\/\/mapi\.xiaotucc\.com\/(mall\/main|main_page\/index\/getActivity) script-path = https://raw.githubusercontent.com/jizhi0520/QX/main/xiaotucc.js, requires-body = true, tag = 小兔充充去广告
 
+#掌上公交 @ddgksf2013 wx.mygolbs.com
+^https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do url script-response-body https://github.com/ddgksf2013/Scripts/raw/master/zhangshanggongjiao.js
+
+
 [MITM]
-hostname = res.pizzahut.com.cn, orders.kfc.com.cn, dynamicad.kfc.com.cn, res.kfc.com.cn, api.mcd.cn, 3pp.starbucks.com.cn, wechat-api.i-xiaoma.com.cn, apiproxy.zuche.com, miniprogram.ishansong.com, ads.ishansong.com, minicap.caocaokeji.cn, r2.gzyct.com, applets.jtexpress.com.cn, ump.ems.com.cn, api.hellobike.coming, api.kuaidihelp.com, wxproj.seeyouyima.com, suyun-user.daojia.com, qapi.huolala.cn, appuser-static.huolala.cn, apis.alenable.com, dock.tenchii.com, webchatapp.fcbox.com, dsp.fcbox.com, api.hongyibo.com.cn, res.hongyibo.com.cn, supplier-api.imdada.cn, common.diditaxi.com.cn, conf.diditaxi.com.cn, fscdn.zto.com, hdgateway.zto.com, mobile-api.imlaidian.com, wxs-weixin.sd.zhumanggroup.com, s.jiediankeji.com, smarket.dian.so,file.dian.so, aag.enmonster.com, ad.xiaotucc.com, mapi.xiaotucc.com, capis*.didapinche.com, api-marketing.zhinengxiyifang.cn, api.songguo7.com, api.hongyibo.com.cn, res.hongyibo.com.cn, api.songguo7.com, ccmsupport-sz.tenpay.com
+hostname = res.pizzahut.com.cn, orders.kfc.com.cn, dynamicad.kfc.com.cn, res.kfc.com.cn, api.mcd.cn, 3pp.starbucks.com.cn, wechat-api.i-xiaoma.com.cn, apiproxy.zuche.com, miniprogram.ishansong.com, ads.ishansong.com, minicap.caocaokeji.cn, r2.gzyct.com, applets.jtexpress.com.cn, ump.ems.com.cn, api.hellobike.coming, api.kuaidihelp.com, wxproj.seeyouyima.com, suyun-user.daojia.com, qapi.huolala.cn, appuser-static.huolala.cn, apis.alenable.com, dock.tenchii.com, webchatapp.fcbox.com, dsp.fcbox.com, api.hongyibo.com.cn, res.hongyibo.com.cn, supplier-api.imdada.cn, common.diditaxi.com.cn, conf.diditaxi.com.cn, fscdn.zto.com, hdgateway.zto.com, mobile-api.imlaidian.com, wxs-weixin.sd.zhumanggroup.com, s.jiediankeji.com, smarket.dian.so,file.dian.so, aag.enmonster.com, ad.xiaotucc.com, mapi.xiaotucc.com, capis*.didapinche.com, api-marketing.zhinengxiyifang.cn, api.songguo7.com, api.hongyibo.com.cn, res.hongyibo.com.cn, api.songguo7.com, ccmsupport-sz.tenpay.com, wx.mygolbs.com
