@@ -43,7 +43,7 @@
 #极兔快递 @是豆豆呀 applets.jtexpress.com.cn
 ^https:\/\/applets\.jtexpress\.com\.cn reject-dict
 
-#哈啰 @是豆豆呀 api.hellobike.coming
+#哈啰 @是豆豆呀 api.hellobike.com
 ^https:\/\/api\.hellobike\.com\/api\?adx reject-dict
 
 #微快递 @是豆豆呀 api.kuaidihelp.com
@@ -144,4 +144,4 @@ http-response ^https:\/\/mapi\.xiaotucc\.com\/(mall\/main|main_page\/index\/getA
 
 
 [MITM]
-hostname = res.pizzahut.com.cn, orders.kfc.com.cn, dynamicad.kfc.com.cn, res.kfc.com.cn, api.mcd.cn, 3pp.starbucks.com.cn, wechat-api.i-xiaoma.com.cn, apiproxy.zuche.com, miniprogram.ishansong.com, ads.ishansong.com, minicap.caocaokeji.cn, r2.gzyct.com, applets.jtexpress.com.cn, ump.ems.com.cn, api.hellobike.coming, api.kuaidihelp.com, wxproj.seeyouyima.com, suyun-user.daojia.com, qapi.huolala.cn, appuser-static.huolala.cn, apis.alenable.com, dock.tenchii.com, webchatapp.fcbox.com, dsp.fcbox.com, api.hongyibo.com.cn, res.hongyibo.com.cn, supplier-api.imdada.cn, common.diditaxi.com.cn, conf.diditaxi.com.cn, fscdn.zto.com, hdgateway.zto.com, mobile-api.imlaidian.com, wxs-weixin.sd.zhumanggroup.com, s.jiediankeji.com, smarket.dian.so,file.dian.so, aag.enmonster.com, ad.xiaotucc.com, mapi.xiaotucc.com, capis*.didapinche.com, api-marketing.zhinengxiyifang.cn, api.songguo7.com, api.hongyibo.com.cn, res.hongyibo.com.cn, api.songguo7.com, ccmsupport-sz.tenpay.com, wx.mygolbs.com
+hostname = res.pizzahut.com.cn, orders.kfc.com.cn, dynamicad.kfc.com.cn, res.kfc.com.cn, api.mcd.cn, 3pp.starbucks.com.cn, wechat-api.i-xiaoma.com.cn, apiproxy.zuche.com, miniprogram.ishansong.com, ads.ishansong.com, minicap.caocaokeji.cn, r2.gzyct.com, applets.jtexpress.com.cn, ump.ems.com.cn, api.hellobike.com, api.kuaidihelp.com, wxproj.seeyouyima.com, suyun-user.daojia.com, qapi.huolala.cn, appuser-static.huolala.cn, apis.alenable.com, dock.tenchii.com, webchatapp.fcbox.com, dsp.fcbox.com, api.hongyibo.com.cn, res.hongyibo.com.cn, supplier-api.imdada.cn, common.diditaxi.com.cn, conf.diditaxi.com.cn, fscdn.zto.com, hdgateway.zto.com, mobile-api.imlaidian.com, wxs-weixin.sd.zhumanggroup.com, s.jiediankeji.com, smarket.dian.so,file.dian.so, aag.enmonster.com, ad.xiaotucc.com, mapi.xiaotucc.com, capis*.didapinche.com, api-marketing.zhinengxiyifang.cn, api.songguo7.com, api.hongyibo.com.cn, res.hongyibo.com.cn, api.songguo7.com, ccmsupport-sz.tenpay.com, wx.mygolbs.com
