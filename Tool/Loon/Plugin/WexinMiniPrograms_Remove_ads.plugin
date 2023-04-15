@@ -128,6 +128,8 @@
 #乘车码 @jinlvei ccmsupport-sz.tenpay.com
 ^https:\/\/ccmsupport-sz\.tenpay\.com\/cgi-bin\/common\/ccm_page_element.cgi reject
 
+#黑科技软件 @ddgksf2013
+^https:\/\/hkj178.com/wp-json/mp/v2/advert/wechat reject-200
 
 [Script]
 #EMS中国邮政物流速递 @TEAXS ump.ems.com.cn
@@ -140,8 +142,103 @@ http-response ^https:\/\/common\.diditaxi\.com\.cn\/common\/v5 script-path = htt
 http-response ^https:\/\/mapi\.xiaotucc\.com\/(mall\/main|main_page\/index\/getActivity) script-path = https://raw.githubusercontent.com/jizhi0520/QX/main/xiaotucc.js, requires-body = true, tag = 小兔充充去广告
 
 #掌上公交 @ddgksf2013 wx.mygolbs.com
-^https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do url script-response-body https://github.com/ddgksf2013/Scripts/raw/master/zhangshanggongjiao.js
+http-response ^https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/zhangshanggongjiao.js, requires-body = true, tag = 掌上公交去广告
+
+#AShare（2022-01-01）@ddgksf2013
+http-response ^https:\/\/tan\.ipnas\.ltd\/wp-json\/wp\/v2 script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = AShare
+
+#不完全指北（2021-12-15）@ddgksf2013
+http-response ^https:\/\/4thdimension\.top\/wp\-json\/watch\-life\-net\/v1\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 不完全指北
+
+#科技窝（2020-12-28）@ddgksf2013
+http-response ^https:\/\/www\.benbenfx\.xyz\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 科技窝
+
+#森茂小苑（2020-12-19）@ddgksf2013
+http-response ^https:\/\/[a-z]+\.smkj33\.top\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 森茂小苑
+
+#电视盒子君（2020-12-18）@ddgksf2013
+http-response ^https:\/\/tvapp\.guilaile\.cn\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 电视盒子君
+
+#公子黑科技（2020-12-18）@ddgksf2013
+http-response ^https:\/\/gz\.gongzijx\.com\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 公子黑科技
+
+#世颜说（2020-12-17）@ddgksf2013
+http-response ^https:\/\/d\.syshhc\.top\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 世颜说
+
+#搞机师兄（2020-12-16）@ddgksf2013
+http-response ^https:\/\/gjsx\.vip\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 搞机师兄
+
+#火箭软件库（2020-12-16）@ddgksf2013
+http-response ^https:\/\/jt\.jxjt888\.top\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 火箭软件库
+
+#天书乱谈（2020-12-15）@ddgksf2013
+http-response ^https:\/\/[a-z]+\.tslt\.xyz\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 天书乱谈
+
+#老胡群英会（2020-12-15）@ddgksf2013
+http-response ^https:\/\/g\.syshhc\.top\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 老胡群英会
+
+#天泽百宝箱（2020-12-15）@ddgksf2013
+http-response ^https:\/\/c\.jxjt888\.top\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 天泽百宝箱
+
+#老鬼黑科技（2020-12-15）@ddgksf2013
+http-response ^https:\/\/www\.laoguikeji\.cn\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 老鬼黑科技
+
+#黑科技软件源（2020-12-15）@ddgksf2013
+http-response ^https:\/\/qj\.bpojie\.com\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 黑科技软件源
+
+#天书X乱谈（2020-12-15）@ddgksf2013
+http-response ^https:\/\/b\.tslt\.xyz\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 天书X乱谈
+
+#图层黑科技（2020-12-15）@ddgksf2013
+http-response ^https:\/\/m\.xgjyouhui\.com\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 图层黑科技
+
+#free黑科技（2020-12-15）@ddgksf2013
+http-response ^https:\/\/www\.freeheikeji\.cn\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = free黑科技
+
+#小纸箱助手（2020-12-15）@ddgksf2013
+http-response ^https:\/\/xcx\.xianbaow\.com\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 小纸箱助手
+
+#扎比科技资源箱 弹框显示内容（2020-12-14）@ddgksf2013
+http-response ^https:\/\/jabi\.coding\.net\/p\/xcx\/d\/xcx\/git\/raw\/master\/jabikj\.json script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/jabi.js, requires-body = true, tag = 扎比科技资源箱
+
+#AppleAndroid 弹框显示内容（2020-12-14）@ddgksf2013
+http-response ^https:\/\/iosoi\.cn\/wp-json\/wp\/v2\/posts/\d+ script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = AppleAndroid
+#辅助去除页面嵌入式式卡片广告（2020-12-14）
+http-response ^https:\/\/iosoi\.cn\/wp-content\/plugins script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = AppleAndroid
+
+#森茂雅苑（2020-10-27）@ddgksf2013
+http-response ^https:\/\/d\.smkj33\.top\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 森茂雅苑
+
+#酸鸡汤、老爷花苑、御花园（2020-12-14）@ddgksf2013
+http-response ^https:\/\/[a-z]+\.ddly666\.top\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 酸鸡汤、老爷花苑、御花园
+
+#黑科技软件（2020-09-01）@ddgksf2013
+http-response ^https:\/\/hkj178\.com\/wp\-json\/mp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 黑科技软件
+
+#天泽后花园（2020-09-01）@ddgksf2013
+http-response ^https:\/\/a\.jxjt888\.top\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 天泽后花园
+
+#小野分享（2020-12-15）@ddgksf2013
+http-response ^https:\/\/lysl2020\.com\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 小野分享
+
+#搜罗好货（2020-09-24）@ddgksf2013
+http-response ^https:\/\/www\.i3zh\.com\/wp\-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 搜罗好货
+
+#漫画台 Lite@ddgksf2013
+http-response ^https?:\/\/comic\.321mh\.com\/app_api\/v\d\/getcomicinfo_body script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/manhuatailite.js, requires-body = true, tag = 漫画台
+
+#小打卡@ddgksf2013
+http-response ^https?:\/\/uranus\.sharedaka\.com\/api\/v3\/user\/info\/get script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xiaodaka.js, requires-body = true, tag = 小打卡
+
+#搜罗好货（2022-03-12）@ddgksf2013
+http-response ^https?:\/\/wp3\.lobdol\.cn\/wp-json\/wp\/v2\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 搜罗好货
+
+#APP基地（2022-03-20）@ddgksf2013
+http-response ^https:\/\/wx\.wxqqurl\.cn\/wp-json\/watch-life-net\/v1\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = APP基地
+
+#科技窝（2022-03-20）@ddgksf2013
+http-response ^https:\/\/www\.bbkj\.work\/wp-json\/watch-life-net\/v1\/posts script-path = https://raw.githubusercontent.com/ddgksf2013/Scripts/master/xcx.js, requires-body = true, tag = 科技窝
 
 
 [MITM]
-hostname = res.pizzahut.com.cn, orders.kfc.com.cn, dynamicad.kfc.com.cn, res.kfc.com.cn, api.mcd.cn, 3pp.starbucks.com.cn, wechat-api.i-xiaoma.com.cn, apiproxy.zuche.com, miniprogram.ishansong.com, ads.ishansong.com, minicap.caocaokeji.cn, r2.gzyct.com, applets.jtexpress.com.cn, ump.ems.com.cn, api.hellobike.com, api.kuaidihelp.com, wxproj.seeyouyima.com, suyun-user.daojia.com, qapi.huolala.cn, appuser-static.huolala.cn, apis.alenable.com, dock.tenchii.com, webchatapp.fcbox.com, dsp.fcbox.com, api.hongyibo.com.cn, res.hongyibo.com.cn, supplier-api.imdada.cn, common.diditaxi.com.cn, conf.diditaxi.com.cn, fscdn.zto.com, hdgateway.zto.com, mobile-api.imlaidian.com, wxs-weixin.sd.zhumanggroup.com, s.jiediankeji.com, smarket.dian.so,file.dian.so, aag.enmonster.com, ad.xiaotucc.com, mapi.xiaotucc.com, capis*.didapinche.com, api-marketing.zhinengxiyifang.cn, api.songguo7.com, api.hongyibo.com.cn, res.hongyibo.com.cn, api.songguo7.com, ccmsupport-sz.tenpay.com, wx.mygolbs.com
+hostname = res.pizzahut.com.cn, orders.kfc.com.cn, dynamicad.kfc.com.cn, res.kfc.com.cn, api.mcd.cn, 3pp.starbucks.com.cn, wechat-api.i-xiaoma.com.cn, apiproxy.zuche.com, miniprogram.ishansong.com, ads.ishansong.com, minicap.caocaokeji.cn, r2.gzyct.com, applets.jtexpress.com.cn, ump.ems.com.cn, api.hellobike.com, api.kuaidihelp.com, wxproj.seeyouyima.com, suyun-user.daojia.com, qapi.huolala.cn, appuser-static.huolala.cn, apis.alenable.com, dock.tenchii.com, webchatapp.fcbox.com, dsp.fcbox.com, api.hongyibo.com.cn, res.hongyibo.com.cn, supplier-api.imdada.cn, common.diditaxi.com.cn, conf.diditaxi.com.cn, fscdn.zto.com, hdgateway.zto.com, mobile-api.imlaidian.com, wxs-weixin.sd.zhumanggroup.com, s.jiediankeji.com, smarket.dian.so,file.dian.so, aag.enmonster.com, ad.xiaotucc.com, mapi.xiaotucc.com, capis*.didapinche.com, api-marketing.zhinengxiyifang.cn, api.songguo7.com, api.hongyibo.com.cn, res.hongyibo.com.cn, api.songguo7.com, ccmsupport-sz.tenpay.com, wx.mygolbs.com, hkj178.com, tan.ipnas.ltd, 4thdimension.top, www.benbenfx.xyz, *.smkj33.top, tvapp.guilaile.cn, gz.gongzijx.com, d.syshhc.top, gjsx.vip, jt.jxjt888.top, *.tslt.xyz, g.syshhc.top, c.jxjt888.top, www.laoguikeji.cn, qj.bpojie.com, b.tslt.xyz, m.xgjyouhui.com, www.freeheikeji.cn, xcx.xianbaow.com, jabi.coding.net, iosoi.cn, d.smkj33.top, *.ddly666.top, hkj178.com, a.jxjt888.top, lysl2020.com, www.i3zh.com, comic.321mh.com, uranus.sharedaka.com, wp3.lobdol.cn, wx.wxqqurl.cn, www.bbkj.work
