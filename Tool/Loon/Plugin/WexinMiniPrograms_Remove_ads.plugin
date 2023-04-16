@@ -136,19 +136,19 @@
 ^https:\/\/tm-api\.pin-dao\.cn\/home\/api\/resource\/config\/homeBannerNodes reject-dict
 
 #华住会 @是豆豆呀 api-fouth-mem.huazhu.com
-^https:\/\/api-fouth-mem\.huazhu\.com\/api\/rights\/bannerList url reject-dict
+^https:\/\/api-fouth-mem\.huazhu\.com\/api\/rights\/bannerList reject-dict
 
 #锦江酒店 @是豆豆呀 wxapp.bestwehotel.com
-^https:\/\/wxapp\.bestwehotel\.com\/gw3\/app-mini\/trip-hotel-banner\/activity\/getActivityInfo url reject-dict
+^https:\/\/wxapp\.bestwehotel\.com\/gw3\/app-mini\/trip-hotel-banner\/activity\/getActivityInfo reject-dict
 
 #首旅如家 @是豆豆呀 app.homeinns.com, wx.bthhotels.com
-^https:\/\/wx\.bthhotels\.com\/miniapp\/weixin\/v1\/home\/index_banner url reject-dict
-^https:\/\/app\.homeinns\.com\/api\/v6\/indexs url reject-dict
-^https:\/\/app\.homeinns\.com\/api\/v5\/local url reject-dict
-^https:\/\/app\.homeinns\.com\/api\/v5\/index url reject-dict
+^https:\/\/wx\.bthhotels\.com\/miniapp\/weixin\/v1\/home\/index_banner reject-dict
+^https:\/\/app\.homeinns\.com\/api\/v6\/indexs reject-dict
+^https:\/\/app\.homeinns\.com\/api\/v5\/local reject-dict
+^https:\/\/app\.homeinns\.com\/api\/v5\/index reject-dict
 
 #蜜雪冰城 @是豆豆呀 mxsa.mxbc.net
-^https:\/\/mxsa\.mxbc\.net\/api\/v1\/adinfo\/adplace\/query url reject-dict
+^https:\/\/mxsa\.mxbc\.net\/api\/v1\/adinfo\/adplace\/query reject-dict
 
 
 [Script]
