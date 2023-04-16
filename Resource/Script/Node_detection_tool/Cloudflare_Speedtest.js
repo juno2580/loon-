@@ -60,7 +60,7 @@ let content = ''
   color = shifts[b]
   console.log(`icon=shifts[${a}]:`+shifts[a])
   console.log(`icon-color[${b}]:`+shifts[b])
-  title = `NetSpeed`
+  title = `网速测试`
   content = `下行速率：${round(Math.abs(speed * 8))} Mbps [${round(Math.abs(speed, 2), 1)} MB/s]\n测试耗时：${round(Math.abs(duration, 2),2)}s\n网络延迟：${pingt} ms\n执行时间：${new Date().toTimeString().split(' ')[0]}`
   if ($.isTile()) {
     await notify('下行速率', '面板', '测试完成')
