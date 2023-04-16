@@ -1,7 +1,7 @@
 /*
 引用地址https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/zhihu.js
 */
- // 2023-04-07 18:15
+// 2023-04-14 22:55
 
 if (!$response.body) $done({});
 const url = $request.url;
@@ -69,28 +69,34 @@ if (url.includes("/appview/v3/zhmore")) {
     }
   } else if (url.includes("/api/v4/answers")) {
     if (obj.paging) {
-      obj.paging = {};
+      delete obj.paging;
     }
     if (obj.data) {
-      obj.data = {};
+      delete obj.data;
     }
   } else if (url.includes("/api/v4/articles")) {
     if (obj.ad_info) {
-      obj.ad_info = {};
+      delete obj.ad_info;
     }
   } else if (url.includes("/commercial_api/app_float_layer")) {
     // 悬浮图标
     if ("feed_egg" in obj) {
-      obj = {};
+      delete obj;
     }
   } else if (url.includes("/moments_v3")) {
     if (obj.data) {
       obj.data = obj.data.filter((i) => !i?.title?.includes("为您推荐"));
     }
+  } else if (url.includes("/next-bff")) {
+    if (obj.data) {
+      obj.data = obj.data.filter(
+        (i) => !(i?.origin_data?.type?.includes("ad"))
+      );
+    }
   } else if (url.includes("/next-data")) {
     if (obj.data.data) {
       obj.data.data = obj.data.data.filter(
-        (i) => !(i?.type?.includes("ad") || i?.data?.answer_type === "PAID")
+        (i) => !(i?.type?.includes("ad") || i?.data?.answer_type?.includes("PAID"))
       );
     }
   } else if (url.includes("/people/homepage_entry")) {
@@ -119,10 +125,6 @@ if (url.includes("/appview/v3/zhmore")) {
           return false;
         }
       });
-    }
-  } else if (url.includes("/root/window")) {
-    if (obj.guide) {
-      obj.guide = {};
     }
   } else if (url.includes("/topstory/recommend")) {
     // 推荐信息流
@@ -184,10 +186,10 @@ if (url.includes("/appview/v3/zhmore")) {
   } else if (url.includes("/v4/questions") || url.includes("/questions")) {
     // 问题回答列表广告
     if (obj.data.ad_info) {
-      obj.data.ad_info = {};
+      delete obj.data.ad_info;
     }
     if (obj.ad_info) {
-      obj.ad_info = {};
+      delete obj.ad_info;
     }
   }
   $done({ body: JSON.stringify(obj) });
