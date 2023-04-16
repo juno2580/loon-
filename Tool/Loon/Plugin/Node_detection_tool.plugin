@@ -1,10 +1,11 @@
 #!name = 节点检测工具
-#!desc = 适用于Loon的节点检测工具，可进行IP查询、媒体解锁查询。请在所有节点页面选择一个节点长按，出现菜单后进行测试。
+#!desc = 适用于Loon的节点检测工具，可进行地理位置、节点解锁、节点网速等查询。请在所有节点页面选择一个节点长按，出现菜单后进行测试。
 #!openUrl = 
-#!author = KOP-XIAO
+#!author = KOP-XIAO @xream @keywos @wuhu_zzz @整点猫咪
 #!homepage = https://gitlab.com/lodepuly/vpn_tool//tree/main/Tool/Loon/Plugin
 #!icon = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Node_detection_tool/icon/Node_detection_tool.png
 
 [Script]
+generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Node_detection_tool/Cloudflare_Speedtest.js, timeout = 10, tag = 节点网速测试, img-url = speedometer.system
 generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Node_detection_tool/Geo_location.js, timeout = 10, tag = 地理位置查询, img-url = location.circle.system
 generic script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/Node_detection_tool/Node_detection_tool.js, tag = 节点解锁查询, img-url = play.circle.system
