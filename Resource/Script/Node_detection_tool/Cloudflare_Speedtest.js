@@ -1,6 +1,6 @@
 /*
 引用地址https://raw.githubusercontent.com/getsomecat/Loon/main/Net_Speedlite.js
-作者：@xream @keywos @wuhu_zzz @整点猫咪 技术指导：整点薯条 
+作者：@xream @keywos @wuhu_zzz @整点猫咪 @TEXAS 技术指导：整点薯条 
 整点花里胡哨
 各种花里胡哨参数，通过argument传入，用=连接key及相应value，用&链接各种key，可以任意选择想填入的参数
 title：标题
@@ -27,11 +27,12 @@ let content = ''
   if($.isTile()) {
     await notify('下行速率', '面板', '开始测试')
   }
-  const mb = $.lodash_get(arg, 'mb') || 12 
+  const mb = $.lodash_get(arg, 'mb') || 12
   const bytes = mb * 1024 * 1024
   let start = Date.now()
   const res = await $.http.get({
-    url: `https://speed.cloudflare.com/__down?bytes=${bytes}`
+    url: `https://speed.cloudflare.com/__down?bytes=${bytes}`,
+    node: $environment.params.node
   })
   const time = $.lodash_get(res, 'headers.cf-meta-request-time')
   const end = Date.now()
@@ -39,7 +40,8 @@ let content = ''
   const speed = mb / duration
   const pingstart = Date.now()
   const ping = await $.http.get({
-    url: `http://cp.cloudflare.com/generate_204`
+    url: `http://cp.cloudflare.com/generate_204`,
+       node: $environment.params.node
   })
   pingt = Date.now()-pingstart
   console.log('to see:'+pingt)
@@ -58,7 +60,7 @@ let content = ''
   color = shifts[b]
   console.log(`icon=shifts[${a}]:`+shifts[a])
   console.log(`icon-color[${b}]:`+shifts[b])
-  title = `网速测试`
+  title = `NetSpeed`
   content = `下行速率：${round(Math.abs(speed * 8))} Mbps [${round(Math.abs(speed, 2), 1)} MB/s]\n测试耗时：${round(Math.abs(duration, 2),2)}s\n网络延迟：${pingt} ms\n执行时间：${new Date().toTimeString().split(' ')[0]}`
   if ($.isTile()) {
     await notify('下行速率', '面板', '测试完成')
