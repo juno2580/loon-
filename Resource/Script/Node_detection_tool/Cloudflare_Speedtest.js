@@ -33,7 +33,7 @@ let content = ''
   let start = Date.now()
   const res = await $.http.get({
     url: `https://speed.cloudflare.com/__down?bytes=${bytes}`,
-    node: $environment.params.node,
+    node: $environment.params.nodeInfo.name,
     timeout:3000
   })
   const end = Date.now()
@@ -42,7 +42,7 @@ let content = ''
   const pingstart = Date.now()
   const ping = await $.http.get({
     url: `http://cp.cloudflare.com/generate_204`,
-       node: $environment.params.node,
+       node: $environment.params.nodeInfo.name,
        timeout:3000
   })
   pingt = Date.now()-pingstart
@@ -63,7 +63,7 @@ let content = ''
   console.log(`icon=shifts[${a}]:`+shifts[a])
   console.log(`icon-color[${b}]:`+shifts[b])
   title = `网速测试`
-  content = `测试节点：$environment.params.nodeInfo.name\n下行速率：${round(Math.abs(speed * 8))} Mbps [${round(Math.abs(speed, 2), 1)} MB/s]\n测试用时：${round(Math.abs(duration, 2),2)}s\n网络延时：${pingt} ms\n执行时间：${new Date().toTimeString().split(' ')[0]}`
+  content = `测试节点：${node}\n下行速率：${round(Math.abs(speed * 8))} Mbps [${round(Math.abs(speed, 2), 1)} MB/s]\n测试用时：${round(Math.abs(duration, 2),2)}s\n网络延时：${pingt} ms\n执行时间：${new Date().toTimeString().split(' ')[0]}`
   if ($.isTile()) {
     await notify('下行速率', '面板', '测试完成')
   } else if(!$.isPanel()) {
