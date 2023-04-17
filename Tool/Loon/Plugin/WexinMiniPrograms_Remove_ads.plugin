@@ -281,7 +281,7 @@ http-response ^https:\/\/www\.bbkj\.work\/wp-json\/watch-life-net\/v1\/posts scr
 http-response ^https:\/\/go\.heytea\.com\/api\/service-portal\/vip script-path = https://raw.githubusercontent.com/jizhi0520/QX/main/heytea.js, requires-body = true, tag = 喜茶去广告
 
 #全家微会员 @是豆豆呀 minifm.maxxipoint.com
-http-response ^https:\/\/minifm\.maxxipoint\.com\/banner\/list script-path = hhttps://raw.githubusercontent.com/jizhi0520/QX/main/FamilyMart.js, requires-body = true, tag = 全家微会员去广告
+http-response ^https:\/\/minifm\.maxxipoint\.com\/banner\/list script-path = https://raw.githubusercontent.com/jizhi0520/QX/main/FamilyMart.js, requires-body = true, tag = 全家微会员去广告
 
 #罗森点点 @是豆豆呀 lawsonapi.yorentown.com, plt.yorentown.com
 http-response ^https:\/\/lawsonapi\.yorentown\.com\/area\/sh-lawson\/app\/v1\/home script-path = https://raw.githubusercontent.com/jizhi0520/QX/main/lawson.js, requires-body = true, tag = 罗森点点去广告
