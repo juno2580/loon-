@@ -63,7 +63,7 @@ let content = ''
   console.log(`icon=shifts[${a}]:`+shifts[a])
   console.log(`icon-color[${b}]:`+shifts[b])
   title = `网速测试`
-  content = `测试节点：${node}\n下行速率：${round(Math.abs(speed * 8))} Mbps [${round(Math.abs(speed, 2), 1)} MB/s]\n测试用时：${round(Math.abs(duration, 2),2)}s\n网络延时：${pingt} ms\n执行时间：${new Date().toTimeString().split(' ')[0]}`
+  content = `下行速率：${round(Math.abs(speed * 8))} Mbps [${round(Math.abs(speed, 2), 1)} MB/s]\n测试用时：${round(Math.abs(duration, 2),2)}s\n网络延时：${pingt} ms\n执行时间：${new Date().toTimeString().split(' ')[0]}\n节点名称：${$environment.params.nodeInfo.name}`
   if ($.isTile()) {
     await notify('下行速率', '面板', '测试完成')
   } else if(!$.isPanel()) {
