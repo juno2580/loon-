@@ -28,7 +28,7 @@ let content = ''
   if($.isTile()) {
     await notify('下行速率', '面板', '开始测试')
   }
-  const mb = $.lodash_get(arg, 'mb') || 0.5
+  const mb = $.lodash_get(arg, 'mb') || 1
   const bytes = mb * 1024 * 1024
   let start = Date.now()
   const res = await $.http.get({
@@ -62,7 +62,7 @@ let content = ''
   color = shifts[b]
   console.log(`icon=shifts[${a}]:`+shifts[a])
   console.log(`icon-color[${b}]:`+shifts[b])
-  title = `网速测试`
+  title = `NetSpeed`
   content = `下行速率：${round(Math.abs(speed * 8))} Mbps [${round(Math.abs(speed, 2), 1)} MB/s]\n测试用时：${round(Math.abs(duration, 2),2)}s\n网络延时：${pingt} ms\n执行时间：${new Date().toTimeString().split(' ')[0]}`
   if ($.isTile()) {
     await notify('下行速率', '面板', '测试完成')
