@@ -1,9 +1,8 @@
 /*
- * 感谢并修改自
- * https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/geo_location.js
- * GeoIP查询
+ * 地理位置查询
+ * 感谢并修改自https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/master/Scripts/geo_location.js
+ * 脚本功能：检查节点是否支持Dazn/Discovery/Param/Disney/Netflix/ChatGPT/YouTube解锁服务
  * 原作者：XIAO_KOP
- * 现作者：Loon0x00
 */
 
 // $environment.params with input params
@@ -33,8 +32,8 @@ var requestParams = {
 }
 
 var message = ""
-const paras = ["ip","isp","country_code","city"];
-const paran = ["IP","ISP","地区","城市"];
+const paras = ["ip","asn","isp","country_code","city"];
+const paran = ["IP","ASN","ISP","地区","城市"];
 
 $httpClient.get(requestParams, (error, response, data) => {
     if (error) {
