@@ -174,7 +174,9 @@
 #M Stand @是豆豆呀 api.prod.dj.mstand.cn, api.prod.dj.mstand.cn
 ^https:\/\/api\.prod\.dj\.mstand\.cn\/scrm\/app\/mdm\/index\/listAdv\?types reject-dict
 
-
+#挪瓦咖啡 @是豆豆呀 webapi.qmai.cn, images.qmai.cn
+^https:\/\/webapi\.qmai\.cn\/web\/catering\/advertising\/ad reject-dict
+^https:\/\/images\.qmai\.cn\/s214925\/2023 reject-dict
 
 
 
@@ -316,6 +318,9 @@ http-response ^https:\/\/api\.prod\.dj\.mstand\.cn\/scrm\/mini\/app\/index\/info
 
 #LINLEE @是豆豆呀 webapi.qmai.cn
 http-response ^https:\/\/webapi\.qmai\.cn\/web\/catering\/design\/homePage-Config script-path = https://raw.githubusercontent.com/jizhi0520/QX/main/LINLEE.js, requires-body = true, tag = LINLEE去广告
+
+#挪瓦咖啡 @是豆豆呀 webapi.qmai.cn, images.qmai.cn
+http-response ^https:\/\/webapi\.qmai\.cn\/web\/catering\/design\/homePage-Config script-path = https://raw.githubusercontent.com/jizhi0520/QX/main/kff.js, requires-body = true, tag = 挪瓦咖啡去广告
 
 
 [MITM]
