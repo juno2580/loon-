@@ -17,6 +17,8 @@ const Discovery_BASE_URL = "https://us1-prod-direct.discoveryplus.com/users/me"
 const GPT_BASE_URL = 'https://chat.openai.com/'
 const GPT_RegionL_URL = 'https://chat.openai.com/cdn-cgi/trace'
 
+const Google_BASE_URL = 'https://www.google.com/maps/timeline'
+
 var inputParams = $environment.params;
 var nodeName = inputParams.node;
 
@@ -84,6 +86,7 @@ function disneyLocation() {
         $httpClient.post(params, (errormsg,response,data) => {
             console.log("----------disney--------------");
             if (errormsg) {
+                result["Discovery"] = "<b>Disneyᐩ:</b>检测失败 ❗️";
                 resolve("disney request failed:" + errormsg);
                 return;
             }
@@ -161,6 +164,7 @@ function ytbTest() {
             console.log("----------YTB--------------");
             if (errormsg) {
                 console.log("YTB request failed:" + errormsg);
+                result["YouTube"] = "<b>YouTube Premium: </b>检测失败 ❗️";
                 resolve(errormsg);
                 return;
             }
@@ -219,6 +223,7 @@ function daznTest() {
             console.log("----------DAZN--------------");
             if (errormsg) {
                 console.log("Dazn request error:" + errormsg);
+                result["Dazn"] = "<b>Dazn: </b>检测失败 ❗️";
                 resolve(errormsg);
                 return;
             }
@@ -257,6 +262,7 @@ function parmTest() {
             console.log("----------PARAM--------------");
             if (errormsg) {
                 console.log("Param request error:" + errormsg);
+                result["Paramountᐩ"] = "<b>Paramountᐩ: </b>检测失败 ❗️";
                 resolve(errormsg);
                 return;
             }
@@ -311,6 +317,7 @@ function discoveryTest() {
                     console.log("----------Discory--------------");
                     if (emsg) {
                         console.log("Discovery request error:" + errormsg);
+                        result["Discovery"] = "<b>Discoveryᐩ: </b>检测失败 ❗️";
                         resolve(emsg);
                         return;
                     }
@@ -353,6 +360,7 @@ function nfTest() {
             console.log("----------NetFlix--------------");
             if (errormsg) {
                 console.log("NF request failed:" + errormsg);
+                result["Netflix"] = "<b>Netflix: </b>检测失败 ❗️";
                 resolve(errormsg);
                 return;
             }
@@ -415,6 +423,7 @@ function gptTest() {
                     console.log("----------GPT RegionL--------------");
                     if (emsg) {
                         console.log("GPT RegionL request error:" + errormsg);
+                        result["ChatGPT"] = "<b>ChatGPT: </b>检测失败 ❗️";
                         resolve(emsg);
                         return;
                     }
@@ -437,6 +446,42 @@ function gptTest() {
                 result["ChatGPT"] = "<b>ChatGPT: </b>未支持 🚫"
                 console.log("不支持 ChatGPT")
                 resolve("不支持 ChatGPT")
+            }
+        })
+    })
+}
+
+//google送中
+function googleToCN() {
+    return new Promise((resolve, reject) => {
+        let params = {
+            url: Google_BASE_URL,
+            node: nodeName,
+            timeout: 3000, //ms
+            headers:{
+                'Accept-Encoding' : `gzip, deflate, br`,
+                'Connection' : `keep-alive`,
+                'Accept' : `text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8`,
+                'Host' : `www.google.com`,
+                'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 15_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Mobile/15E148 Safari/604.1`,
+                'Accept-Language' : `zh-CN,zh-Hans;q=0.9`
+            }
+        }
+
+        $httpClient.get(params, (errormsg,response,data) => {
+            console.log("----------Google2CN--------------");
+            if (errormsg) {
+                console.log("Google2CN request failed:" + errormsg);
+                result["Google2CN"] = "<b>2CN: </b>检测失败 ❗️";
+                resolve(errormsg);
+                return;
+            }
+            if (response.status == 400) {
+                result["Google2CN"] = "<b>2CN: </b>已被送中"
+                resolve("404 Not Found");
+            } else {
+                result["Google2CN"] = "<b>2CN: </b>未被送中"
+                resolve(response.status);
             }
         })
     })
