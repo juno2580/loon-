@@ -1,7 +1,7 @@
 /*
 引用地址https://github.com/RuCu6/QuanX/raw/main/Rewrites/Cube/amap.snippet
 */
-// 2023-04-21 10:00
+// 2023-04-21 22:55
 
 const url = $request.url;
 if (!$response.body) $done({});
@@ -153,6 +153,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     "ip_square_share",
     "isNewSearchMapCard", // 可能是足迹
     "isPoiBubbleDisplay",
+    "lab_beta",
     "lab_screenrecording",
     "landing_page_info",
     "list_action_drawer",
@@ -174,6 +175,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     "profileHeaderPic",
     "profiletTopBtn",
     "recommend_api",
+    "recommend_key",
     "redesign_user",
     "routeresult_banner",
     "search_homepage",
@@ -184,6 +186,7 @@ if (url.includes("/faas/amap-navigation/main-page")) {
     "search_service_adcode",
     "search_word",
     "small_biz_fun",
+    "small_biz_index",
     "small_biz_news",
     "splashscreen",
     "splashview_config",
@@ -400,7 +403,10 @@ if (url.includes("/faas/amap-navigation/main-page")) {
       delete list.card;
     }
   }
-} else if (url.includes("/shield/search_poi/sug")) {
+} else if (
+  url.includes("/shield/search_poi/sug") ||
+  url.includes("/shield/search/sug")
+) {
   if (obj?.tip_list) {
     let newList = [];
     if (obj?.tip_list?.length > 0) {
