@@ -4,7 +4,7 @@
  * 脚本功能：检查节点是否支持Dazn/Discovery/Param/Disney/Netflix/ChatGPT/YouTube解锁服务
  * 原作者：XIAO_KOP
  */
-const NF_BASE_URL = "https://www.netflix.com/title/81215567";
+const NF_BASE_URL = "https://www.netflix.com/title/81280792";
 const DISNEY_BASE_URL = 'https://www.disneyplus.com';
 const DISNEY_LOCATION_BASE_URL = 'https://disney.api.edge.bamgrid.com/graph/v1/device/graphql';
 const YTB_BASE_URL = "https://www.youtube.com/premium";
@@ -164,28 +164,32 @@ function ytbTest() {
                 resolve(errormsg);
                 return;
             }
-            if (response.status == 200) {
-                console.log("YTB request data:" + response.status);
-                if (data.indexOf('Premium is not available in your country') !== -1) {
-                    result["YouTube"] = "<b>YouTube Premium: </b>未支持 🚫"
-                    resolve("YTB test failed");
-                } else {
-                    let region = ''
-                    let re = new RegExp('"GL":"(.*?)"', 'gm')
-                    let ret = re.exec(data)
-                    if (ret != null && ret.length === 2) {
-                        region = ret[1]
-                    } else if (data.indexOf('www.google.cn') !== -1) {
-                        region = 'CN'
-                    } else {
-                        region = 'US'
-                    }
-                    result["YouTube"] = "<b>YouTube Premium: </b>支持 "+arrow+ "⟦"+flags.get(region.toUpperCase())+"⟧ 🎉"
-                    resolve(region);
-                }
-            } else {
+            if (response.status !== 200) {
                 result["YouTube"] = "<b>YouTube Premium: </b>检测失败 ❗️";
                 resolve(response.status);
+            } else {
+              console.log("YTB request data:" + response.status);
+              if (data.indexOf('Premium is not available in your country') !== -1) {
+                  result["YouTube"] = "<b>YouTube Premium: </b>未支持 🚫"
+                  resolve("YTB test failed");
+              } else if (data.indexOf('Premium is not available in your country') == -1) {
+                  let region = ''
+                  let re = new RegExp('"GL":"(.*?)"', 'gm')
+                  let ret = re.exec(data)
+                  if (ret != null && ret.length === 2) {
+                      region = ret[1]
+                  } else if (data.indexOf('www.google.cn') !== -1) {
+                      region = 'CN'
+                  } else {
+                      region = 'US'
+                  }
+                  console.log("YTB region:" + region);
+                  result["YouTube"] = "<b>YouTube Premium: </b>支持 "+arrow+ "⟦"+flags.get(region.toUpperCase())+"⟧ 🎉"
+                  resolve(region);
+              } else {
+                result["YouTube"] = "<b>YouTube Premium: </b>检测超时 🚦";
+                resolve("timeout");
+              }
             }
         })
     })
