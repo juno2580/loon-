@@ -16,7 +16,7 @@ DOMAIN, sdkconfig.ad.xiaomi.com, REJECT
 DOMAIN-SUFFIX, applovin.com, REJECT
 
 # 通用广告
-DOMAIN, googleads.g.doubleclick-cn.net, REJECT
+DOMAIN-SUFFIX, doubleclick-cn.net, REJECT
 
 
 
