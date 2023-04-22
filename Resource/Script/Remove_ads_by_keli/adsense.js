@@ -22,7 +22,7 @@ if ((url.includes("api-access.pangolin-sdk-toutiao.com/api/ad/union/sdk")
         console.log(`body:${$response.body}`);
         // 错误码 https://www.csjplatform.com/supportcenter/5421
         if (!('status_code' in body)) {
-            $notification.post(noticeTitle, "穿山甲", "message/status_code字段错误");
+            // $notification.post(noticeTitle, "穿山甲", "message/status_code字段错误");
         } else {
             console.log('广告为空');
         }
@@ -48,7 +48,7 @@ if ((url.includes("api-access.pangolin-sdk-toutiao.com/api/ad/union/sdk")
         }
     } else {
         console.log(`body:${$response.body}`);
-        $notification.post(noticeTitle, "优量汇", "无ret");
+        // $notification.post(noticeTitle, "优量汇", "无ret");
     }
 } else if (url.includes('open.e.kuaishou.com') && method === postMethod) {
     console.log('快手联盟');
@@ -60,7 +60,7 @@ if ((url.includes("api-access.pangolin-sdk-toutiao.com/api/ad/union/sdk")
         console.log('无需修改result');
     }
 } else {
-    $notification.post(noticeTitle, "路径/请求方法匹配错误:", method + "," + url);
+    // $notification.post(noticeTitle, "路径/请求方法匹配错误:", method + "," + url);
 }
 
 body = JSON.stringify(body);
