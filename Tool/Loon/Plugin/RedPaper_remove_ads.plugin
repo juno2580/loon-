@@ -14,7 +14,7 @@
 
 [Script]
 # 搜索页
-http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/search\/hot_list\?? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/RedPaper/RedPaper_remove_ads.js, requires-body = true, tag = 移除搜索页广告
+http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/search\/(banner|hot)_list\?? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/RedPaper/RedPaper_remove_ads.js, requires-body = true, tag = 移除搜索页广告
 http-response ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v4\/search\/(hint|trending)\? script-path = https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/RedPaper/RedPaper_remove_ads.js, requires-body = true, tag = 移除搜索页广告
 
 # 开屏广告
