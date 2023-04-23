@@ -1,8 +1,7 @@
 /*
 引用地址：https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/weibo.js
 */
-// 2023-04-13 08:50
-
+// 2023-04-23 19:55
 const url = $request.url;
 if (!$response.body) $done({});
 let body = $response.body;
@@ -79,11 +78,10 @@ if (url.includes("/interface/sdk/sdkad.php")) {
           let newGroup = [];
           for (let group of cardGroup) {
             let cardType = group.card_type;
-            if (card?.show_type === 3) {
-              // 保留视频热榜
-              if (cardType !== 17) {
-                continue;
-              }
+            // 120,145 视频版块轮播图
+            // 192 横版热门视频 电影 颜值 电视剧等
+            if ([120, 145, 192].includes(cardType)) {
+              continue;
             }
             // 搜索框 我的热搜 查看更多热搜
             if ([4, 6, 101].includes(cardType)) {
@@ -582,8 +580,12 @@ if (url.includes("/interface/sdk/sdkad.php")) {
   } else if (url.includes("/2/statuses/show")) {
     removeFeedAd(obj);
     // 循环引用中的商品橱窗
-    if (obj.text) {
+    if (obj?.text) {
       removeFeedAd(obj.text);
+    }
+    // 赞赏信息
+    if (obj?.reward_info) {
+      delete obj.reward_info;
     }
   } else if (url.includes("/2/statuses/unread_hot_timeline")) {
     // 首页推荐tab信息流
