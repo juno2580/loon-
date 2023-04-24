@@ -12,7 +12,7 @@
 ^https:\/\/www\.xiaohongshu\.com\/api\/sns\/v1\/ads\/resource\? url reject-dict
 
 # 图片及视频水印
-^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v[23]\/note\/(video)?feed\? url response-body "disable_watermark":false, response-body "disable_watermark":true,
+^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v[23]\/note\/(feed|redtube|videofeed)\? url response-body "disable_watermark":false, response-body "disable_watermark":true,
 
 # 搜索页
 ^https:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/search\/(banner|hot)_list\?? url script-response-body https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Script/RedPaper/RedPaper_remove_ads.js
